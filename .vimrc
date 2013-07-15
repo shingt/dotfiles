@@ -1,0 +1,361 @@
+autocmd!
+
+set nocompatible
+filetype off
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+  call neobundle#rc(expand('~/.vim/bundle/'))
+endif
+
+NeoBundle 'Shougo/neocomplcache.git'
+NeoBundle 'Shougo/neocomplcache-clang_complete.git'
+""NeoBundle 'Rip-Rip/clang_complete.git'
+NeoBundle 'git://github.com/tokorom/clang_complete-getopts-ios.git'
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'VimClojure'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'jpalardy/vim-slime'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'git://github.com/mileszs/ack.vim'
+NeoBundle 'altercation/vim-colors-solarized'
+""NeoBundle 'https://bitbucket.org/kovisoft/slimv'
+
+" vimのヤンク・スペースにクリップボード利用
+NeoBundle 'git://github.com/kana/vim-fakeclip.git'
+
+" clang
+NeoBundleLazy 'git@github.com:tokorom/clang_complete.git', 'for-ios',{'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
+
+" syntax check
+NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c']}}
+
+" html
+NeoBundleLazy 'ZenCoding.vim', {'autoload': {'filetypes': ['html']}}
+
+" ruby
+NeoBundleLazy 'git://github.com/tpope/vim-rails.git', {'autoload':{'filetypes': ['ruby']}}
+NeoBundleLazy 'git://github.com/tobiassvn/vim-gemfile.git', {'autoload':{'filetypes': ['ruby']}}
+
+" Perl
+NeoBundleLazy 'git://github.com/vim-perl/vim-perl.git'
+
+" Mojo
+NeoBundleLazy 'git://github.com/yko/mojo.vim.git'
+" Configurations variables:
+:let mojo_highlight_data = 1
+"Highlight embedded Perl code in __DATA__ sections of your Perl files.
+":let mojo_disable_html = 1
+" Don't highlight html inside __DATA__ templates - Perl code only.
+":let mojo_no_helpers = 1
+
+
+" markdown
+NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'autoload':{'filetypes': ['markdown']}}
+
+filetype plugin indent on     " required!
+filetype indent on
+
+NeoBundleCheck
+
+"Bundle 'pangloss/vim-javascript'
+
+set imsearch=0
+set iminsert=0
+set encoding=utf-8
+set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp,ucs-2,latin1
+set fileformats=unix,mac,dos
+set ambiwidth=double
+
+" 挿入モードでのバックスペースの挙動設定
+set backspace=indent,eol,start
+" ハイライト
+:syntax on
+" カラースキーマを設定
+set background=dark
+colorscheme molokai 
+" 行番号を表示する
+set number
+" 閉じ括弧が入力されたとき、対応する括弧を表示する
+set showmatch
+" ステータスラインを常に表示
+set laststatus=2
+" ステータスライン表示設定
+set statusline=%<%f\ %m%r%h%w%y%{'\ \ \/'.(&fenc!=''?&fenc:&enc).'\/'.&ff.'\/'}%=%l,%c%V%8P
+" 不可視文字を表示
+set list
+set lcs=tab:>\ 
+
+" コマンドライン補完を便利に
+set wildmenu
+
+" 他インプ途中のコマンドを画面最下行に表示
+set showcmd
+
+" 新しい行のインデントを現在行と同じにする
+set autoindent
+" タブの代わりに空白文字を挿入する
+set expandtab
+" シフト移動幅
+set shiftwidth=2
+" 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする
+set smarttab
+" ファイル内の <Tab> が対応する空白の数
+set tabstop=2
+" 新しい行を作ったときに高度な自動インデントを行う
+set smartindent
+
+" スワップファイル＆バックアップファイルを作るディレクトリ
+set backupdir=$HOME/backup
+set directory=$HOME/backup
+" ファイル保存ダイアログの初期ディレクトリをバッファファイル位置に設定
+set browsedir=buffer 
+" 変更中のファイルでも、保存しないで他のファイルを表示
+set hidden
+
+"インクリメンタルサーチを行う
+set incsearch
+"マッチした文字列をハイライト
+set hlsearch
+"検索時に大文字を含んでいたら大/小を区別
+set ignorecase smartcase
+
+" vimgrep時に自動でQuickFixを開く設定
+autocmd QuickfixCmdPost vimgrep cw
+
+" カーソルを行頭、行末で止まらないようにする
+set whichwrap=b,s,h,l,<,>,[,]
+
+" 日本語の行の連結時には空白を入力しない。
+set formatoptions+=mM
+
+" 画面最後の行をできる限り表示する。
+set display+=lastline
+
+" 補完の設定
+set completeopt=menu,preview,longest
+
+" 日付の自動入力のフォーマット
+let autodate_format="%Y-%m-%d"
+
+" 折り畳み設定
+set foldmethod=marker
+
+" クリップボードを自動で利用 
+set clipboard=unnamed
+
+" 自動改行防止
+set tw=0
+
+" keybindings 
+" ---------- general ----------
+
+noremap [MyPrefix] <Nop>
+map <Space> [MyPrefix]
+noremap [MyDoublePrefix] <Nop>
+map <Space><Space> [MyDoublePrefix]
+
+set winaltkeys=no
+inoremap  <C-l>   <Esc>:<C-u>w<CR>
+
+" カレント行ハイライト
+set cursorline
+
+" カーソル点滅
+let &t_ti.="\e[1 q"
+let &t_SI.="\e[5 q"
+let &t_EI.="\e[1 q"
+let &t_te.="\e[0 q"
+
+" ---------- for MacVim ----------
+
+nnoremap <S-C>   c$
+
+" ---------- move ----------
+
+noremap  <silent> <C-a>    <Esc>:<C-u>MoveToZero<CR>
+noremap  <silent> <C-e>    $
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
+vnoremap L l/)<CR>h
+vnoremap H h?(<CR>l
+nnoremap L l/)<CR>:noh<CR>h
+nnoremap H h?(<CR>:noh<CR>l
+
+" ---------- insert mode ----------
+
+inoremap <C-d>     <Delete>
+
+" ---------- visual mode ----------
+
+nnoremap gc   '[v']
+vnoremap gc   :<C-u>normal gc<Enter>
+onoremap gc   :<C-u>normal gc<Enter>
+
+" ---------- command mode ----------
+cnoremap <C-f>    <Right>
+cnoremap <C-b>    <Left>
+cnoremap <C-a>    <Home>
+cnoremap <C-e>    <End>
+cnoremap <C-d>    <Del>
+cnoremap <C-h>    <BackSpace>
+cnoremap <S-Tab>  <C-d>
+
+nnoremap [MyPrefix]o             A;<Esc>o
+
+" 名前付きレジスタにヤンク
+nnoremap [MyPrefix]y "yy
+" 名前付きレジスタにヤンクして削除
+nnoremap [MyPrefix]d "yd
+" 名前付きレジスタからペースト
+nnoremap [MyPrefix]p "yp
+nnoremap [MyPrefix]P "yP
+" クリップボードの内容を名前付きレジスタに逃がす
+nnoremap [MyPrefix]" :<C-u>let @y=@*<CR>:echo @y<CR>
+" 単語の置き換え(クリップボードの内容を保つ)
+nnoremap [MyPrefix]r "rciw<C-r>*<Esc>
+
+" 全選択
+nnoremap [MyPrefix]<C-a> ggVG
+filetype off
+
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+call pathogen#infect()
+
+
+
+" --- snippet ----
+imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <C-k> <Plug>(neocomplcache_snippets_expand)
+
+
+""""""""""""""""""""""""""""""
+"挿入モード時、ステータスラインの色を変更
+""""""""""""""""""""""""""""""
+let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
+
+if has('syntax')
+augroup InsertHook
+autocmd!
+autocmd InsertEnter * call s:StatusLine('Enter')
+autocmd InsertLeave * call s:StatusLine('Leave')
+augroup END
+endif
+
+  let s:slhlcmd = ''
+function! s:StatusLine(mode)
+  if a:mode == 'Enter'
+  silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+  silent exec g:hi_insert
+  else
+  highlight clear StatusLine
+  silent exec s:slhlcmd
+  endif
+  endfunction
+
+function! s:GetHighlight(hi)
+  redir => hl
+  exec 'highlight '.a:hi
+  redir END
+  let hl = substitute(hl, '[\r\n]', '', 'g')
+  let hl = substitute(hl, 'xxx', '', '')
+  return hl
+  endfunction
+
+
+"if !exists('g:neocomplcache_force_omni_patterns')
+"  let g:neocomplcache_force_omni_patterns = {}
+"endif
+"let g:neocomplcache_force_overwrite_completefunc = 1
+"let g:neocomplcache_force_omni_patterns.c =
+"  \ '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplcache_force_omni_patterns.cpp =
+"  \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+"let g:neocomplcache_force_omni_patterns.objc =
+"  \ '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplcache_force_omni_patterns.objcpp =
+"  \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+"let g:clang_complete_auto = 0
+"let g:clang_auto_select = 0
+
+
+"" clang_complete
+let g:clang_complete_auto = 1 
+let g:clang_use_library   = 1 
+let g:clang_library_path  = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+let g:clang_user_options  = '2>/dev/null || exit 0"'
+
+"" ---- perl -----
+augroup filetypedetect
+  autocmd! BufNewFile,BufRead *.t setf perl
+  autocmd! BufNewFile,BufRead *.psgi setf perl
+  autocmd! BufNewFile,BufRead *.tt setf tt2html
+augroup END
+
+" 自動的にテンプレートを入力する
+autocmd BufNewFile *.pl 0r $HOME/.vim/template/perl-script.txt
+autocmd BufNewFile *.t  0r $HOME/.vim/template/perl-test.txt
+
+" .pmファイルのテンプレート
+function! s:pm_template()
+    let path = substitute(expand('%'), '.*lib/', '', 'g')
+    let path = substitute(path, '[\\/]', '::', 'g')
+    let path = substitute(path, '\.pm$', '', 'g')
+
+    call append(0, 'package ' . path . ';')
+    call append(1, 'use strict;')
+    call append(2, 'use warnings;')
+    call append(3, 'use utf8;')
+    call append(4, '')
+    call append(5, '')
+    call append(6, '')
+    call append(7, '1;')
+    call cursor(6, 0)
+    " echomsg path
+endfunction
+autocmd BufNewFile *.pm call s:pm_template()
+
+" パッケージ名の自動チェック
+function! s:get_package_name()
+    let mx = '^\s*package\s\+\([^ ;]\+\)'
+    for line in getline(1, 5)
+        if line =~ mx
+        return substitute(matchstr(line, mx), mx, '\1', '')
+        endif
+    endfor
+    return ""
+endfunction
+
+function! s:check_package_name()
+    let path = substitute(expand('%:p'), '\\', '/', 'g')
+    let name = substitute(s:get_package_name(), '::', '/', 'g') . '.pm'
+    if path[-len(name):] != name
+        echohl WarningMsg
+        echomsg "ぱっけーじめいと、ほぞんされているぱすが、ちがうきがします！"
+        echomsg "ちゃんとなおしてください＞＜"
+        echohl None
+    endif
+endfunction
+
+au! BufWritePost *.pm call s:check_package_name()
+
+" 拡張子でのフォーマット設定
+augroup filetypedetect
+autocmd! BufNewFile,BufRead *.t setf perl
+autocmd! BufNewFile,BufRead *.psgi setf perl
+autocmd! BufNewFile,BufRead *.tt setf tt2html
+augroup END
+
+"コンパイラの指定
+autocmd FileType perl,cgi :compiler perl  
+
