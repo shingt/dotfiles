@@ -72,8 +72,7 @@ set ambiwidth=double
 
 " 挿入モードでのバックスペースの挙動設定
 set backspace=indent,eol,start
-" ハイライト
-:syntax on
+
 " カラースキーマを設定
 set background=dark
 colorscheme molokai 
@@ -359,3 +358,10 @@ augroup END
 "コンパイラの指定
 autocmd FileType perl,cgi :compiler perl  
 
+
+
+
+
+" ハイライト
+" 前の方でやると適用されないのでとりあえずここに
+:syntax on
