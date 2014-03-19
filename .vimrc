@@ -4,25 +4,42 @@ set nocompatible
 filetype off
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
 endif
+ 
+call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundle 'Shougo/neocomplcache.git'
 NeoBundle 'Shougo/neocomplcache-clang_complete.git'
 ""NeoBundle 'Rip-Rip/clang_complete.git'
 NeoBundle 'git://github.com/tokorom/clang_complete-getopts-ios.git'
 NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
 NeoBundle 'VimClojure'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'scrooloose/syntastic'
+"NeoBundle 'scrooloose/syntastic'
 NeoBundle 'git://github.com/mileszs/ack.vim'
 NeoBundle 'altercation/vim-colors-solarized'
+
+NeoBundle 'thinca/vim-ref'
+
 ""NeoBundle 'https://bitbucket.org/kovisoft/slimv'
+
+NeoBundle 'thinca/vim-quickrun'
+
+NeoBundle 'rhysd/accelerated-jk'
+
+NeoBundle 'kien/ctrlp.vim'
 
 " vimのヤンク・スペースにクリップボード利用
 NeoBundle 'git://github.com/kana/vim-fakeclip.git'
@@ -33,6 +50,10 @@ NeoBundleLazy 'git@github.com:tokorom/clang_complete.git', 'for-ios',{'autoload'
 " syntax check
 NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c']}}
 
+" gitの差分表示
+" 入れるとバグる？
+"NeoBundle 'airblade/vim-gitgutter'
+
 " html
 NeoBundleLazy 'ZenCoding.vim', {'autoload': {'filetypes': ['html']}}
 
@@ -40,8 +61,15 @@ NeoBundleLazy 'ZenCoding.vim', {'autoload': {'filetypes': ['html']}}
 NeoBundleLazy 'git://github.com/tpope/vim-rails.git', {'autoload':{'filetypes': ['ruby']}}
 NeoBundleLazy 'git://github.com/tobiassvn/vim-gemfile.git', {'autoload':{'filetypes': ['ruby']}}
 
+
 " Perl
 NeoBundleLazy 'git://github.com/vim-perl/vim-perl.git'
+" http://kazuph.github.io/presentation/yapc_vim_2013_github/
+" http://mattn.kaoriya.net/software/lang/perl/20100901231137.htm
+NeoBundleLazy 'c9s/perlomni.vim'
+
+" Perlのローカルのモジュールにパスを通す．
+NeoBundle "y-uuki/perl-local-lib-path.vim"
 
 " Mojo
 NeoBundleLazy 'git://github.com/yko/mojo.vim.git'
@@ -52,6 +80,8 @@ NeoBundleLazy 'git://github.com/yko/mojo.vim.git'
 " Don't highlight html inside __DATA__ templates - Perl code only.
 ":let mojo_no_helpers = 1
 
+" CoffeeScript
+NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git'
 
 " markdown
 NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'autoload':{'filetypes': ['markdown']}}
@@ -76,6 +106,9 @@ set backspace=indent,eol,start
 " カラースキーマを設定
 set background=dark
 colorscheme molokai 
+" If you prefer the scheme to match the original monokai background color
+let g:molokai_original = 1
+
 " 行番号を表示する
 set number
 " 閉じ括弧が入力されたとき、対応する括弧を表示する
@@ -161,7 +194,7 @@ set winaltkeys=no
 inoremap  <C-l>   <Esc>:<C-u>w<CR>
 
 " カレント行ハイライト
-set cursorline
+"set cursorline
 
 " カーソル点滅
 let &t_ti.="\e[1 q"
@@ -226,8 +259,8 @@ filetype off
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+"set rtp+=~/.vim/bundle/vundle/
+"call vundle#rc()
 
 call pathogen#infect()
 
@@ -296,9 +329,11 @@ let g:clang_user_options  = '2>/dev/null || exit 0"'
 
 "" ---- perl -----
 augroup filetypedetect
-  autocmd! BufNewFile,BufRead *.t setf perl
+  autocmd! BufNewFile,BufRead *.t    setf perl
   autocmd! BufNewFile,BufRead *.psgi setf perl
-  autocmd! BufNewFile,BufRead *.tt setf tt2html
+  autocmd! BufNewFile,BufRead *.tt   setf tt2html
+  autocmd! BufNewFile,BufRead *.tt2  setf tt2html
+  autocmd! BufNewFile,BufRead cpanfile setf tt2html
 augroup END
 
 " 自動的にテンプレートを入力する
@@ -358,10 +393,16 @@ augroup END
 "コンパイラの指定
 autocmd FileType perl,cgi :compiler perl  
 
-
-
-
-
 " ハイライト
 " 前の方でやると適用されないのでとりあえずここに
 :syntax on
+
+if &term == "screen"
+    set t_Co=256
+endif
+
+" accelerated-jk'
+"let g:accelerated_jk_acceleration_table = [10,5,3]
+"nmap j <Plug>(accelerated_jk_gj)
+"nmap k <Plug>(accelerated_jk_gk)
+
