@@ -198,7 +198,7 @@ fi
 ##               globがマッチしなかったり存在しないパスを無視する。
 ##            -: シンボリックリンク先のパスを評価。
 ##            .: 通常のファイルのみ残す。
-email_files=(~/.zsh.d/email(N-.)
+email_files=(~/dotfiles/.zsh.d/email(N-.)
              ~/.email(N-.))
 for email_file in ${email_files}; do
     export EMAIL=$(cat "$email_file")
