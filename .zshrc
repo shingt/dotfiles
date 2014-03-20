@@ -1,3 +1,7 @@
+if [ -f ~/.bash_profile ]; then
+  source ~/.bash_profile
+fi
+
 source ~/dotfiles/.zsh.d/zshrc
 
 #TERM=xterm-color: export TERM
