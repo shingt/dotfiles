@@ -1,6 +1,5 @@
 # ignore all files
-/*
-/.*
+# /.*
 # require files
 !/Documents/terminal/*.terminal
 !/bin
@@ -15,6 +14,7 @@
 !/.vimrc
 !/.vim
 !/.zsh.d
+!/.zsh.d/*
 !/.zshenv
 !/.zshrc
 !/.agignore
