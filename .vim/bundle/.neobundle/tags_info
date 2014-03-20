@@ -18,7 +18,6 @@ unite.vim
 vim-coffee-script
 vim-colors-solarized
 vim-fakeclip
-vim-gemfile
 vim-markdown
 vim-perl
 vim-quickrun

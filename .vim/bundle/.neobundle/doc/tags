@@ -95,6 +95,7 @@
 :AckFile	ack.txt	/*:AckFile*
 :AckFromSearch	ack.txt	/*:AckFromSearch*
 :AckHelp	ack.txt	/*:AckHelp*
+:AckWindow	ack.txt	/*:AckWindow*
 :CtrlP	ctrlp.txt	/*:CtrlP*
 :CtrlPBookmarkDir	ctrlp.txt	/*:CtrlPBookmarkDir*
 :CtrlPBookmarkDirAdd	ctrlp.txt	/*:CtrlPBookmarkDirAdd*
@@ -120,6 +121,7 @@
 :LAck	ack.txt	/*:LAck*
 :LAckAdd	ack.txt	/*:LAckAdd*
 :LAckHelp	ack.txt	/*:LAckHelp*
+:LAckWindow	ack.txt	/*:LAckWindow*
 :Neco	neocomplcache.txt	/*:Neco*
 :NeoBundle	neobundle.txt	/*:NeoBundle*
 :NeoBundleCheck	neobundle.txt	/*:NeoBundleCheck*
@@ -369,6 +371,7 @@ accelerated-jk-usage	accelerated-jk.txt	/*accelerated-jk-usage*
 accelerated-jk.txt	accelerated-jk.txt	/*accelerated-jk.txt*
 ack	ack.txt	/*ack*
 ack-author	ack.txt	/*ack-author*
+ack-configuration	ack.txt	/*ack-configuration*
 ack-mappings	ack.txt	/*ack-mappings*
 ack.txt	ack.txt	/*ack.txt*
 aw	clojure.txt	/*aw*
@@ -475,6 +478,9 @@ g:accelerated_jk_acceleration_limit	accelerated-jk.txt	/*g:accelerated_jk_accele
 g:accelerated_jk_acceleration_table	accelerated-jk.txt	/*g:accelerated_jk_acceleration_table*
 g:accelerated_jk_deceleration_table	accelerated-jk.txt	/*g:accelerated_jk_deceleration_table*
 g:accelerated_jk_enable_deceleration	accelerated-jk.txt	/*g:accelerated_jk_enable_deceleration*
+g:ack_autoclose	ack.txt	/*g:ack_autoclose*
+g:ackhighlight	ack.txt	/*g:ackhighlight*
+g:ackprg	ack.txt	/*g:ackprg*
 g:clang_auto_select	clang_complete.txt	/*g:clang_auto_select*
 g:clang_auto_user_options	clang_complete.txt	/*g:clang_auto_user_options*
 g:clang_close_preview	clang_complete.txt	/*g:clang_close_preview*
@@ -515,6 +521,7 @@ g:neobundle#install_max_processes	neobundle.txt	/*g:neobundle#install_max_proces
 g:neobundle#install_process_timeout	neobundle.txt	/*g:neobundle#install_process_timeout*
 g:neobundle#log_filename	neobundle.txt	/*g:neobundle#log_filename*
 g:neobundle#rm_command	neobundle.txt	/*g:neobundle#rm_command*
+g:neobundle#types#git#clone_depth	neobundle.txt	/*g:neobundle#types#git#clone_depth*
 g:neobundle#types#git#command_path	neobundle.txt	/*g:neobundle#types#git#command_path*
 g:neobundle#types#git#default_protocol	neobundle.txt	/*g:neobundle#types#git#default_protocol*
 g:neobundle#types#git#enable_submodule	neobundle.txt	/*g:neobundle#types#git#enable_submodule*
@@ -597,6 +604,7 @@ g:neosnippet#disable_runtime_snippets	neosnippet.txt	/*g:neosnippet#disable_runt
 g:neosnippet#disable_select_mode_mappings	neosnippet.txt	/*g:neosnippet#disable_select_mode_mappings*
 g:neosnippet#enable_preview	neosnippet.txt	/*g:neosnippet#enable_preview*
 g:neosnippet#enable_snipmate_compatibility	neosnippet.txt	/*g:neosnippet#enable_snipmate_compatibility*
+g:neosnippet#expand_word_boundary	neosnippet.txt	/*g:neosnippet#expand_word_boundary*
 g:neosnippet#scope_aliases	neosnippet.txt	/*g:neosnippet#scope_aliases*
 g:neosnippet#snippets_directory	neosnippet.txt	/*g:neosnippet#snippets_directory*
 g:quickrun#default_config	quickrun.txt	/*g:quickrun#default_config*
@@ -641,6 +649,7 @@ g:unite_abbr_highlight	unite.txt	/*g:unite_abbr_highlight*
 g:unite_candidate_icon	unite.txt	/*g:unite_candidate_icon*
 g:unite_converter_file_directory_width	unite.txt	/*g:unite_converter_file_directory_width*
 g:unite_cursor_line_highlight	unite.txt	/*g:unite_cursor_line_highlight*
+g:unite_cursor_line_time	unite.txt	/*g:unite_cursor_line_time*
 g:unite_data_directory	unite.txt	/*g:unite_data_directory*
 g:unite_enable_short_source_names	unite.txt	/*g:unite_enable_short_source_names*
 g:unite_enable_split_vertically	unite.txt	/*g:unite_enable_split_vertically*
@@ -667,6 +676,7 @@ g:unite_source_file_rec_ignore_pattern	unite.txt	/*g:unite_source_file_rec_ignor
 g:unite_source_file_rec_max_cache_files	unite.txt	/*g:unite_source_file_rec_max_cache_files*
 g:unite_source_file_rec_min_cache_files	unite.txt	/*g:unite_source_file_rec_min_cache_files*
 g:unite_source_find_command	unite.txt	/*g:unite_source_find_command*
+g:unite_source_find_default_opts	unite.txt	/*g:unite_source_find_default_opts*
 g:unite_source_find_ignore_pattern	unite.txt	/*g:unite_source_find_ignore_pattern*
 g:unite_source_find_max_candidates	unite.txt	/*g:unite_source_find_max_candidates*
 g:unite_source_grep_command	unite.txt	/*g:unite_source_grep_command*
@@ -889,6 +899,7 @@ neobundle-options-site	neobundle.txt	/*neobundle-options-site*
 neobundle-options-stay_same	neobundle.txt	/*neobundle-options-stay_same*
 neobundle-options-terminal	neobundle.txt	/*neobundle-options-terminal*
 neobundle-options-type	neobundle.txt	/*neobundle-options-type*
+neobundle-options-type__depth	neobundle.txt	/*neobundle-options-type__depth*
 neobundle-options-type__filename	neobundle.txt	/*neobundle-options-type__filename*
 neobundle-options-type__protocol	neobundle.txt	/*neobundle-options-type__protocol*
 neobundle-options-verbose	neobundle.txt	/*neobundle-options-verbose*
@@ -1385,6 +1396,7 @@ syntastic-composite	syntastic.txt	/*syntastic-composite*
 syntastic-config-exec	syntastic.txt	/*syntastic-config-exec*
 syntastic-config-makeprg	syntastic.txt	/*syntastic-config-makeprg*
 syntastic-contents	syntastic.txt	/*syntastic-contents*
+syntastic-eclim	syntastic.txt	/*syntastic-eclim*
 syntastic-error-signs	syntastic.txt	/*syntastic-error-signs*
 syntastic-error-window	syntastic.txt	/*syntastic-error-window*
 syntastic-filetype-checkers	syntastic.txt	/*syntastic-filetype-checkers*
