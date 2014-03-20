@@ -1,6 +1,10 @@
 # ignore all files
 # /.*
+.vim/bundle/*
+!.vim/bundle/neobundle.vim
+
 # require files
+
 !/Documents/terminal/*.terminal
 !/bin
 !/.bashrc
