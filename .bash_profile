@@ -13,6 +13,7 @@ eval "$(rbenv init -)"
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/sbin:$PATH
+export PATH=/bin:$PATH
 
 ##
 # Your previous /Users/shin/.bash_profile file was backed up as /Users/shin/.bash_profile.macports-saved_2012-09-24_at_11:06:33
@@ -48,7 +49,7 @@ export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 export PATH=/usr/texbin:$PATH
 
 # perlbrew
-source /Users/shin/perl5/perlbrew/etc/bashrc
+source ~/perl5/perlbrew/etc/bashrc
 
 # SPTK
 export PATH=/usr/local/SPTK/bin:$PATH
