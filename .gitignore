@@ -6,8 +6,8 @@
 !/Library/Developer/Xcode/Templates/
 !/Documents/terminal/*.terminal
 !/bin
-!/vimfiles
-!/vimfiles_local
+!/.bashrc
+!/.bash_profile
 !/.gitconfig
 !/.gitignore
 !/.gvimrc
@@ -15,7 +15,7 @@
 !/.tmux.conf
 !/.vimperatorrc
 !/.vimrc
-!/.vim/
+!/.vim
 !/.zshenv
 !/.zshrc
 !/.agignore
