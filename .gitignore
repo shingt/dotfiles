@@ -2,8 +2,6 @@
 /*
 /.*
 # require files
-!/Library/Application Support/KeyRemap4MacBook/*.xml
-!/Library/Developer/Xcode/Templates/
 !/Documents/terminal/*.terminal
 !/bin
 !/.bashrc
@@ -16,11 +14,11 @@
 !/.vimperatorrc
 !/.vimrc
 !/.vim
+!/.zsh.d
 !/.zshenv
 !/.zshrc
 !/.agignore
 !/.clang-format
-!/dot.nodoka
 !/clear_backups
 # add ignore files
 .DS_Store
