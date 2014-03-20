@@ -15,6 +15,7 @@
 !/.tmux.conf
 !/.vimperatorrc
 !/.vimrc
+!/.vim/
 !/.zshenv
 !/.zshrc
 !/.agignore
