@@ -11,11 +11,6 @@ export PATH=/opt/lo/bin:$PATH
 export PATH=/sbin:$PATH
 export PATH=/usr/sbin:$PATH
 
-# git settings
-source /usr/local/git/contrib/completion/git-completion.bash
-GIT_PS1_SHOWDIRTYSTATE=true
-export PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
-
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # ffmpeg
