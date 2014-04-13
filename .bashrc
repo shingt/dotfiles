@@ -17,6 +17,7 @@ if [ `uname` = "Darwin" ]; then
   source /usr/local/git/contrib/completion/git-completion.bash
 elif [ `uname` = "Linux" ]; then
   #Linux用のコード
+  echo 'set git-completion in bashrc if you want '
 fi
 
 GIT_PS1_SHOWDIRTYSTATE=true
@@ -34,6 +35,5 @@ alias perldoc='perldoc5.12'
 
 # perl module version check
 alias pmversion='perl -le '"'"'for $module (@ARGV) { eval "use $module"; print "$module ", ${"$module\::VERSION"} || "not found" }'"'"
-
 
 alias tmux="TERM=screen-256color-bce tmux"
