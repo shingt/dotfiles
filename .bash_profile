@@ -22,7 +22,7 @@ export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
 # jenkins
-export PATH=/Users/shin/mypath:$PATH
+export PATH=~/mypath:$PATH
 
 # node.js
 export PATH=/usr/local/share/npm/bin:$PATH
