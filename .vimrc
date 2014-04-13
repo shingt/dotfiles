@@ -331,6 +331,7 @@ let g:clang_user_options  = '2>/dev/null || exit 0"'
 augroup filetypedetect
   autocmd! BufNewFile,BufRead *.t    setf perl
   autocmd! BufNewFile,BufRead *.psgi setf perl
+  autocmd! BufNewFile,BufRead *.fcgi setf perl
   autocmd! BufNewFile,BufRead *.tt   setf tt2html
   autocmd! BufNewFile,BufRead *.tt2  setf tt2html
   autocmd! BufNewFile,BufRead cpanfile setf tt2html
