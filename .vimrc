@@ -10,7 +10,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundle 'Shougo/neocomplcache.git'
 NeoBundle 'Shougo/neocomplcache-clang_complete.git'
-""NeoBundle 'Rip-Rip/clang_complete.git'
 NeoBundle 'git://github.com/tokorom/clang_complete-getopts-ios.git'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
@@ -30,15 +29,8 @@ NeoBundle 'jpalardy/vim-slime'
 "NeoBundle 'scrooloose/syntastic'
 NeoBundle 'git://github.com/mileszs/ack.vim'
 NeoBundle 'altercation/vim-colors-solarized'
-
 NeoBundle 'thinca/vim-ref'
-
-""NeoBundle 'https://bitbucket.org/kovisoft/slimv'
-
 NeoBundle 'thinca/vim-quickrun'
-
-NeoBundle 'rhysd/accelerated-jk'
-
 NeoBundle 'kien/ctrlp.vim'
 
 " vimのヤンク・スペースにクリップボード利用
@@ -51,7 +43,6 @@ NeoBundleLazy 'git@github.com:tokorom/clang_complete.git', 'for-ios',{'autoload'
 NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c']}}
 
 " gitの差分表示
-" 入れるとバグる？
 "NeoBundle 'airblade/vim-gitgutter'
 
 " html
@@ -60,7 +51,6 @@ NeoBundleLazy 'ZenCoding.vim', {'autoload': {'filetypes': ['html']}}
 " ruby
 NeoBundleLazy 'git://github.com/tpope/vim-rails.git', {'autoload':{'filetypes': ['ruby']}}
 " NeoBundleLazy 'git://github.com/tobiassvn/vim-gemfile.git', {'autoload':{'filetypes': ['ruby']}}
-
 
 " Perl
 NeoBundleLazy 'git://github.com/vim-perl/vim-perl.git'
@@ -91,8 +81,6 @@ filetype indent on
 
 NeoBundleCheck
 
-"Bundle 'pangloss/vim-javascript'
-
 set imsearch=0
 set iminsert=0
 set encoding=utf-8
@@ -109,11 +97,8 @@ colorscheme molokai
 " If you prefer the scheme to match the original monokai background color
 let g:molokai_original = 1
 
-" 行番号を表示する
 set number
-" 閉じ括弧が入力されたとき、対応する括弧を表示する
 set showmatch
-" ステータスラインを常に表示
 set laststatus=2
 " ステータスライン表示設定
 set statusline=%<%f\ %m%r%h%w%y%{'\ \ \/'.(&fenc!=''?&fenc:&enc).'\/'.&ff.'\/'}%=%l,%c%V%8P
@@ -148,7 +133,6 @@ set browsedir=buffer
 " 変更中のファイルでも、保存しないで他のファイルを表示
 set hidden
 
-"インクリメンタルサーチを行う
 set incsearch
 "マッチした文字列をハイライト
 set hlsearch
@@ -176,7 +160,6 @@ let autodate_format="%Y-%m-%d"
 " 折り畳み設定
 set foldmethod=marker
 
-" クリップボードを自動で利用 
 set clipboard=unnamed
 
 " 自動改行防止
@@ -259,17 +242,11 @@ filetype off
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-"set rtp+=~/.vim/bundle/vundle/
-"call vundle#rc()
-
 call pathogen#infect()
-
-
 
 " --- snippet ----
 imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <C-k> <Plug>(neocomplcache_snippets_expand)
-
 
 """"""""""""""""""""""""""""""
 "挿入モード時、ステータスラインの色を変更
@@ -304,7 +281,6 @@ function! s:GetHighlight(hi)
   return hl
   endfunction
 
-
 "if !exists('g:neocomplcache_force_omni_patterns')
 "  let g:neocomplcache_force_omni_patterns = {}
 "endif
@@ -319,7 +295,6 @@ function! s:GetHighlight(hi)
 "  \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 "let g:clang_complete_auto = 0
 "let g:clang_auto_select = 0
-
 
 "" clang_complete
 let g:clang_complete_auto = 1 
@@ -401,9 +376,4 @@ autocmd FileType perl,cgi :compiler perl
 if &term == "screen"
     set t_Co=256
 endif
-
-" accelerated-jk'
-"let g:accelerated_jk_acceleration_table = [10,5,3]
-"nmap j <Plug>(accelerated_jk_gj)
-"nmap k <Plug>(accelerated_jk_gk)
 
