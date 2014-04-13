@@ -4,10 +4,6 @@ fi
 
 source ~/dotfiles/.zsh.d/zshrc
 
-#TERM=xterm-color: export TERM
-
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 #
 # (d) is default on
 
@@ -116,13 +112,10 @@ kterm*|xterm*|)
   ;;
 esac
 
-
 ### tmux
 alias tm='tmux'
 alias tma='tmux attach'
 alias tml='tmux list-window'
-
-
 
 # ------------------------------
 # Other Settings
@@ -138,12 +131,10 @@ case "${OSTYPE}" in
   ;;
 esac
 
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # git settings
-source /usr/local/git/contrib/completion/git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
 export PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
 
