@@ -17,9 +17,8 @@ if [ `uname` = "Darwin" ]; then
   source /usr/local/git/contrib/completion/git-completion.bash
   alias cla11='clang++ -std=c++11 -stdlib=libc++'
   alias tmux="TERM=screen-256color-bce tmux"
-elif [ `uname` = "Linux" ]; then
-  #Linux用のコード
-  echo 'set linux-specific configuration in  bashrc if you want.'
+#elif [ `uname` = "Linux" ]; then
+#  #Linux用のコード
 fi
 
 GIT_PS1_SHOWDIRTYSTATE=true
