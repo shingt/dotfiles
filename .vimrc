@@ -32,6 +32,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'scrooloose/nerdtree' 
 
 " vimのヤンク・スペースにクリップボード利用
 NeoBundle 'git://github.com/kana/vim-fakeclip.git'

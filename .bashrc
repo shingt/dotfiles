@@ -12,13 +12,11 @@ export PATH=/sbin:$PATH
 export PATH=/usr/sbin:$PATH
 
 if [ `uname` = "Darwin" ]; then
-  #mac用のコード
   # git settings
-  source /usr/local/git/contrib/completion/git-completion.bash
+#  source /usr/local/git/contrib/completion/git-completion.bash
   alias cla11='clang++ -std=c++11 -stdlib=libc++'
   alias tmux="TERM=screen-256color-bce tmux"
 #elif [ `uname` = "Linux" ]; then
-#  #Linux用のコード
 fi
 
 GIT_PS1_SHOWDIRTYSTATE=true
@@ -37,4 +35,6 @@ alias pmversion='perl -le '"'"'for $module (@ARGV) { eval "use $module"; print "
 # only for centos
 export LANGUAGE=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
+
+
 

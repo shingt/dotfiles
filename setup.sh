@@ -9,3 +9,11 @@ git submodule init
 git submodule update
 
 mkdir $HOME/backup
+
+# git-completion
+cd ~/dotfiles
+mkdir util
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+source util/git-completion.bash
+
+
