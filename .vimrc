@@ -192,7 +192,7 @@ nnoremap <S-C>   c$
 
 " ---------- move ----------
 
-noremap  <silent> <C-a>    <Esc>:<C-u>MoveToZero<CR>
+noremap  <silent> <C-a>    0
 noremap  <silent> <C-e>    $
 noremap j gj
 noremap k gk
