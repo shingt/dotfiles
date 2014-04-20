@@ -1,6 +1,6 @@
 ## dotfiles
 
-### Implementation
+### Setup
 
     sh -x ./dotfiles/setup.sh
 
