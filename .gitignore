@@ -1,9 +1,8 @@
 # ignore all files
 # /.*
+util/*
 .vim/bundle/*
-.vim/bundle/.neobundle/doc/*
-.vim/bundle/.neobundle/doc/tags
-.vim/bundle/.neobundle/doc/syntastic.txt
+.vim/bundle/.neobundle/*
 !.vim/bundle/neobundle.vim
 
 

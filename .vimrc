@@ -10,6 +10,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundle 'Shougo/neocomplcache.git'
 NeoBundle 'Shougo/neocomplcache-clang_complete.git'
+NeoBundle 'Rip-Rip/clang_complete.git'
 NeoBundle 'git://github.com/tokorom/clang_complete-getopts-ios.git'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
@@ -32,12 +33,13 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'scrooloose/nerdtree' 
 
 " vimのヤンク・スペースにクリップボード利用
 NeoBundle 'git://github.com/kana/vim-fakeclip.git'
 
 " clang
-NeoBundleLazy 'git@github.com:tokorom/clang_complete.git', 'for-ios',{'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
+"NeoBundleLazy 'git@github.com:tokorom/clang_complete.git', 'for-ios',{'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
 
 " syntax check
 NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c']}}
@@ -191,7 +193,7 @@ nnoremap <S-C>   c$
 
 " ---------- move ----------
 
-noremap  <silent> <C-a>    <Esc>:<C-u>MoveToZero<CR>
+noremap  <silent> <C-a>    0
 noremap  <silent> <C-e>    $
 noremap j gj
 noremap k gk
@@ -371,7 +373,7 @@ autocmd FileType perl,cgi :compiler perl
 
 " ハイライト
 " 前の方でやると適用されないのでとりあえずここに
-:syntax on
+syntax on
 
 if &term == "screen"
     set t_Co=256
