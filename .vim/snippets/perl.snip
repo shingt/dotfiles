@@ -76,3 +76,17 @@ snippet r200
 
 snippet r404
     [ 404, ['Content-Type', 'text/plain'], ['404 Not Found'] ]
+
+snippet dbi
+    use DBI;
+    my $ds   = "dbi:mysql:temp";
+    my $user = "root";
+    my $pass = "pass";
+
+    my $dbh = DBI->connect($ds, $user, $pass, +{
+      AutoCommit => 0,
+      PrintError => 0,
+      RaiseError => 1,
+    })
+
+
