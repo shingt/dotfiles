@@ -246,9 +246,29 @@ filetype off                   " required!
 
 call pathogen#infect()
 
-" --- snippet ----
-imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <C-k> <Plug>(neocomplcache_snippets_expand)
+"" --- snippet ----
+" Plugin key-mappings.
+ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+ xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+ " SuperTab like snippets behavior.
+ imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+ \ "\<Plug>(neosnippet_expand_or_jump)"
+ \: pumvisible() ? "\<C-n>" : "\<TAB>"
+ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+ \ "\<Plug>(neosnippet_expand_or_jump)"
+ \: "\<TAB>"
+
+ " For snippet_complete marker.
+ if has('conceal')
+   set conceallevel=2 concealcursor=i
+ endif
+
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/snippets'
+
 
 """"""""""""""""""""""""""""""
 "挿入モード時、ステータスラインの色を変更
