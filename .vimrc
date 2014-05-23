@@ -119,11 +119,11 @@ set autoindent
 " タブの代わりに空白文字を挿入する
 set expandtab
 " シフト移動幅
-set shiftwidth=2
+set shiftwidth=4
 " 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする
 set smarttab
 " ファイル内の <Tab> が対応する空白の数
-set tabstop=2
+set tabstop=4
 " 新しい行を作ったときに高度な自動インデントを行う
 set smartindent
 
@@ -329,6 +329,7 @@ augroup filetypedetect
   autocmd! BufNewFile,BufRead *.t    setf perl
   autocmd! BufNewFile,BufRead *.psgi setf perl
   autocmd! BufNewFile,BufRead *.fcgi setf perl
+  autocmd! BufNewFile,BufRead *.tx   setf html
   autocmd! BufNewFile,BufRead *.tt   setf tt2html
   autocmd! BufNewFile,BufRead *.tt2  setf tt2html
   autocmd! BufNewFile,BufRead cpanfile setf tt2html
@@ -382,11 +383,11 @@ endfunction
 au! BufWritePost *.pm call s:check_package_name()
 
 " 拡張子でのフォーマット設定
-augroup filetypedetect
-autocmd! BufNewFile,BufRead *.t setf perl
-autocmd! BufNewFile,BufRead *.psgi setf perl
-autocmd! BufNewFile,BufRead *.tt setf tt2html
-augroup END
+"augroup filetypedetect
+"autocmd! BufNewFile,BufRead *.t setf perl
+"autocmd! BufNewFile,BufRead *.psgi setf perl
+"autocmd! BufNewFile,BufRead *.tt setf tt2html
+"augroup END
 
 "コンパイラの指定
 autocmd FileType perl,cgi :compiler perl  

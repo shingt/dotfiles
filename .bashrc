@@ -36,5 +36,6 @@ alias pmversion='perl -le '"'"'for $module (@ARGV) { eval "use $module"; print "
 export LANGUAGE=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
 
+export PATH=/usr/bin/mysql_config:$PATH
 
 
