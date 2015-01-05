@@ -68,7 +68,7 @@ if [ `uname` = "Darwin" ]; then
 fi
 
 # For go-lang
-if [ -x "`which go 2> /dev/null`" ]; then
+if [ `which go` ]; then
   export GOROOT=`go env GOROOT`
   export GOPATH=$HOME
   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
