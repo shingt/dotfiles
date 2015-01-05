@@ -362,6 +362,7 @@ augroup filetypedetect
   autocmd! BufNewFile,BufRead *.tt   setf tt2html
   autocmd! BufNewFile,BufRead *.tt2  setf tt2html
   autocmd! BufNewFile,BufRead cpanfile setf tt2html
+  autocmd! BufNewFile,BufRead *.hoge  setf confluencewiki
 augroup END
 
 " 自動的にテンプレートを入力する
@@ -403,8 +404,7 @@ function! s:check_package_name()
     let name = substitute(s:get_package_name(), '::', '/', 'g') . '.pm'
     if path[-len(name):] != name
         echohl WarningMsg
-        echomsg "ぱっけーじめいと、ほぞんされているぱすが、ちがうきがします！"
-        echomsg "ちゃんとなおしてください＞＜"
+        echomsg "Package name differs from a saved path."
         echohl None
     endif
 endfunction
@@ -434,3 +434,4 @@ let NERDTreeShowHidden = 1
  
 " デフォルトでツリーを表示させる
 " autocmd VimEnter * execute 'NERDTree'
+
