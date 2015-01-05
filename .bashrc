@@ -68,7 +68,7 @@ if [ `uname` = "Darwin" ]; then
 fi
 
 # For go-lang
-if [ -x "`which go`" ]; then
+if [ -x "`which go 2> /dev/null`" ]; then
   export GOROOT=`go env GOROOT`
   export GOPATH=$HOME
   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
@@ -92,5 +92,7 @@ alias tml='tmux list-window'
 #if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
 
 ### For ssh agent-forwarding
-ssh-add ~/.ssh/id_rsa
-ssh-add ~/.ssh/id_dsa
+if [ `uname` = "Darwin" ]; then
+  ssh-add ~/.ssh/id_rsa
+  ssh-add ~/.ssh/id_dsa
+fi
