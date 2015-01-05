@@ -57,9 +57,27 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
+# for ghq + peco (http://weblog.bulknews.net/post/89635306479/ghq-peco-percol)
+function peco-src () {
+  local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
+
+function peco-coding-memo () {
+  local selected_memo=$(find ~/memo/coding_memo/ -maxdepth 1 -mindepth 1 | peco)
+  if [ -n "$selected_memo" ]; then
+    vim ${selected_memo}
+  fi
+}
+
 # すべてのヒストリを表示する
 function history-all { history -E 1 }
-
 
 # ------------------------------
 # Look And Feel Settings
@@ -112,34 +130,7 @@ kterm*|xterm*|)
   ;;
 esac
 
-### tmux
-alias tm='tmux'
-alias tma='tmux attach'
-alias tml='tmux list-window'
-
 # ------------------------------
 # Other Settings
 # ------------------------------
-### RVM ###
-#if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
-
-### Macports ###
-case "${OSTYPE}" in
-  darwin*)
-    export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-    export MANPATH=/opt/local/share/man:/opt/local/man:$MANPATH
-  ;;
-esac
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# git settings
-GIT_PS1_SHOWDIRTYSTATE=true
-export PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
-
-if [ -f ~/dotfiles/git-completion.bash ]; then
-  source ~/dotfiles/git-completion.bash
-fi
-
 

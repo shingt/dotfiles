@@ -9,9 +9,9 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundle 'Shougo/neocomplcache.git'
-NeoBundle 'Shougo/neocomplcache-clang_complete.git'
-NeoBundle 'Rip-Rip/clang_complete.git'
-NeoBundle 'git://github.com/tokorom/clang_complete-getopts-ios.git'
+"NeoBundle 'Shougo/neocomplcache-clang_complete.git'
+"NeoBundle 'Rip-Rip/clang_complete.git'
+"NeoBundle 'git://github.com/tokorom/clang_complete-getopts-ios.git'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -34,6 +34,7 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree' 
+NeoBundle 'toyamarinyon/vim-swift'
 
 " vimのヤンク・スペースにクリップボード利用
 NeoBundle 'git://github.com/kana/vim-fakeclip.git'
@@ -78,6 +79,9 @@ NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git'
 " markdown
 NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'autoload':{'filetypes': ['markdown']}}
 
+" Confluence
+NeoBundleLazy 'vim-scripts/confluencewiki.vim'
+
 filetype plugin indent on     " required!
 filetype indent on
 
@@ -119,11 +123,20 @@ set autoindent
 " タブの代わりに空白文字を挿入する
 set expandtab
 " シフト移動幅
-set shiftwidth=4
+set shiftwidth=2
 " 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする
 set smarttab
 " ファイル内の <Tab> が対応する空白の数
-set tabstop=4
+set tabstop=2
+
+au BufNewFile,BufRead *.pl  set tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.pm  set tabstop=4 shiftwidth=4
+
+au BufNewFile,BufRead *.rb  set tabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.md  set tabstop=2 shiftwidth=2
+
+au BufNewFile,BufRead *.hoge  set ft=confluencewiki
+
 " 新しい行を作ったときに高度な自動インデントを行う
 set smartindent
 
@@ -334,11 +347,11 @@ function! s:GetHighlight(hi)
          \ }
 
 
-"" clang_complete
-let g:clang_complete_auto = 1 
-let g:clang_use_library   = 1 
-let g:clang_library_path  = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
-let g:clang_user_options  = '2>/dev/null || exit 0"'
+""" clang_complete
+"let g:clang_complete_auto = 1 
+"let g:clang_use_library   = 1 
+"let g:clang_library_path  = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+"let g:clang_user_options  = '2>/dev/null || exit 0"'
 
 "" ---- perl -----
 augroup filetypedetect
@@ -416,5 +429,8 @@ if &term == "screen"
     set t_Co=256
 endif
 
-
-
+" 隠しファイルをデフォルトで表示させる
+let NERDTreeShowHidden = 1
+ 
+" デフォルトでツリーを表示させる
+" autocmd VimEnter * execute 'NERDTree'
