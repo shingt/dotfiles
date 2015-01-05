@@ -404,6 +404,6 @@ fi
 
 ## autojump
 alias j="autojump"
-if [ -f `brew --prefix`/etc/autojump ]; then
+if [ `which brew 2> /dev/null` ] && [ -f `brew --prefix`/etc/autojump ]; then
   . `brew --prefix`/etc/autojump
 fi
