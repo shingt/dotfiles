@@ -70,7 +70,7 @@ zle -N peco-src
 bindkey '^]' peco-src
 
 function peco-coding-memo () {
-  local selected_memo=$(find ~/memo/coding_memo/ -maxdepth 1 -mindepth 1 | peco)
+  local selected_memo=$(find ~/memo/coding/ -maxdepth 1 -mindepth 1 | peco)
   if [ -n "$selected_memo" ]; then
     vim ${selected_memo}
   fi
