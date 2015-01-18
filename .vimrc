@@ -79,6 +79,9 @@ NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git'
 " markdown
 NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'autoload':{'filetypes': ['markdown']}}
 
+" Dockerfile
+NeoBundleLazy "ekalinin/Dockerfile.vim"
+
 " Confluence
 NeoBundleLazy 'vim-scripts/confluencewiki.vim'
 
