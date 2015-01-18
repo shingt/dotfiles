@@ -74,6 +74,11 @@ if [ `which go 2> /dev/null` ]; then
   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
+# For swift (temporary)
+if [ -f /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift ]; then
+  export PATH=$PATH:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/
+fi
+
 # perlbrew
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
   source ~/perl5/perlbrew/etc/bashrc
