@@ -40,7 +40,7 @@ NeoBundle 'toyamarinyon/vim-swift'
 NeoBundle 'git://github.com/kana/vim-fakeclip.git'
 
 " clang
-"NeoBundleLazy 'git@github.com:tokorom/clang_complete.git', 'for-ios',{'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
+NeoBundleLazy 'git@github.com:tokorom/clang_complete.git', 'for-ios',{'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
 
 " syntax check
 NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c']}}
