@@ -40,10 +40,10 @@ NeoBundle 'toyamarinyon/vim-swift'
 NeoBundle 'git://github.com/kana/vim-fakeclip.git'
 
 " clang
-NeoBundleLazy 'git@github.com:tokorom/clang_complete.git', 'for-ios',{'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
+"NeoBundleLazy 'git@github.com:tokorom/clang_complete.git', 'for-ios',{'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
 
 " syntax check
-NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c']}}
+NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c', 'objc']}}
 
 " gitの差分表示
 "NeoBundle 'airblade/vim-gitgutter'
@@ -138,10 +138,14 @@ set tabstop=2
 au BufNewFile,BufRead *.pl  set tabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.pm  set tabstop=4 shiftwidth=4
 
+au BufNewFile,BufRead *.swift  set tabstop=4 shiftwidth=4
+
 au BufNewFile,BufRead *.rb  set tabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.md  set tabstop=2 shiftwidth=2
 
 au BufNewFile,BufRead *.hoge  set ft=confluencewiki
+
+" au BufNewFile,BufRead *.mm  set ft=objc
 
 " 新しい行を作ったときに高度な自動インデントを行う
 set smartindent

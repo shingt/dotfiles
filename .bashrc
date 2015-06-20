@@ -64,6 +64,9 @@ if [ `uname` = "Darwin" ]; then
   ### Heroku Toolbelt
   export PATH="/usr/local/heroku/bin:$PATH"
 
+  ### Change iterm2 background 
+  alias ssh=~/bin/ssh-host-color
+
 #elif [ `uname` = "Linux" ]; then
 fi
 
@@ -92,6 +95,10 @@ alias pmversion='perl -le '"'"'for $module (@ARGV) { eval "use $module"; print "
 alias tm='tmux'
 alias tma='tmux attach'
 alias tml='tmux list-window'
+alias g='git'
+alias gcm='git commit'
+alias gps='git push'
+alias gpu='git pull'
 
 ### RVM ###
 #if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
@@ -101,3 +108,5 @@ if [ `uname` = "Darwin" ]; then
   if [[ -s ~/.ssh/id_rsa ]] ; then ssh-add ~/.ssh/id_rsa ; fi
   if [[ -s ~/.ssh/id_dsa ]] ; then ssh-add ~/.ssh/id_dsa ; fi
 fi
+
+eval "$(hub alias -s)"
