@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<root>
+  <appdef>
+    <appname>Slack</appname>
+    <equal>com.tinyspeck.slackmacgap</equal>
+  </appdef>
+ 
+  <item>
+    <name>Cmd + [,] to Option + ↑,↓</name>
+    <identifier>slack.change_channel</identifier>
+    <only>Slack</only>
+    <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L, | ModifierFlag::NONE,
+      KeyCode::CURSOR_UP, ModifierFlag::OPTION_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L, | ModifierFlag::NONE,
+      KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L</autogen>
+  </item>
+</root>
