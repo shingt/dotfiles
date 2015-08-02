@@ -65,7 +65,7 @@ if [ `uname` = "Darwin" ]; then
   export PATH="/usr/local/heroku/bin:$PATH"
 
   ### Change iterm2 background 
-  alias ssh=~/bin/ssh-host-color
+#  alias ssh=~/bin/ssh-host-color
 
 #elif [ `uname` = "Linux" ]; then
 fi
@@ -96,12 +96,9 @@ alias tm='tmux'
 alias tma='tmux attach'
 alias tml='tmux list-window'
 alias g='git'
-alias gcm='git commit'
-alias gps='git push'
-alias gpu='git pull'
 
 ### RVM ###
-#if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
+if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
 
 ### For ssh agent-forwarding
 if [ `uname` = "Darwin" ]; then
@@ -110,3 +107,5 @@ if [ `uname` = "Darwin" ]; then
 fi
 
 eval "$(hub alias -s)"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
