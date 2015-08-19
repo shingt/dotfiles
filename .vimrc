@@ -36,6 +36,8 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree' 
 NeoBundle 'toyamarinyon/vim-swift'
 
+NeoBundle 'airblade/vim-gitgutter'
+
 " vimのヤンク・スペースにクリップボード利用
 NeoBundle 'git://github.com/kana/vim-fakeclip.git'
 
