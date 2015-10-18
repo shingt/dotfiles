@@ -90,6 +90,10 @@ NeoBundleLazy "ekalinin/Dockerfile.vim"
 " Confluence
 NeoBundleLazy 'vim-scripts/confluencewiki.vim'
 
+NeoBundleLazy 'mattn/flappyvird-vim.git'
+
+NeoBundleLazy 'juvenn/mustache.git'
+
 filetype plugin indent on     " required!
 filetype indent on
 
@@ -146,6 +150,8 @@ au BufNewFile,BufRead *.rb  set tabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.md  set tabstop=2 shiftwidth=2
 
 au BufNewFile,BufRead *.hoge  set ft=confluencewiki
+
+" au BufNewFile,BufRead *.mustache  set ft=html
 
 " au BufNewFile,BufRead *.mm  set ft=objc
 
