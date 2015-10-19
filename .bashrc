@@ -96,6 +96,7 @@ alias tm='tmux'
 alias tma='tmux attach'
 alias tml='tmux list-window'
 alias g='git'
+alias sf='sift'
 
 ### RVM ###
 if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi

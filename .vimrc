@@ -37,6 +37,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'toyamarinyon/vim-swift'
 
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'rhysd/github-complete.vim'
 
 " vimのヤンク・スペースにクリップボード利用
 NeoBundle 'git://github.com/kana/vim-fakeclip.git'
@@ -146,6 +147,9 @@ au BufNewFile,BufRead *.rb  set tabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.md  set tabstop=2 shiftwidth=2
 
 au BufNewFile,BufRead *.hoge  set ft=confluencewiki
+
+au BufNewFile,BufRead Fastfile set ft=ruby
+au BufNewFile,BufRead *.cap set ft=ruby
 
 " au BufNewFile,BufRead *.mm  set ft=objc
 
@@ -447,3 +451,5 @@ let NERDTreeShowHidden = 1
 " デフォルトでツリーを表示させる
 " autocmd VimEnter * execute 'NERDTree'
 
+
+let g:gitgutter_max_signs = 1000
