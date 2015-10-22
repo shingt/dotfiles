@@ -4,19 +4,16 @@ fi
 
 source ~/dotfiles/.zsh.d/zshrc
 
-#
-# (d) is default on
-
 # ------------------------------
 # General Settings
 # ------------------------------
+
 export EDITOR=vim        # エディタをvimに設定
 export LANG=ja_JP.UTF-8  # 文字コードをUTF-8に設定
 export KCODE=u           # KCODEにUTF-8を設定
 export AUTOFEATURE=true  # autotestでfeatureを動かす
 
 bindkey -e               # キーバインドをemacsモードに設定
-#bindkey -v              # キーバインドをviモードに設定
 
 setopt no_beep           # ビープ音を鳴らさないようにする
 setopt auto_cd           # ディレクトリ名の入力のみで移動する 
@@ -83,8 +80,6 @@ function history-all { history -E 1 }
 # Look And Feel Settings
 # ------------------------------
 ### Ls Color ###
-# 色の設定
-#export LSCOLORS=Exfxcxdxbxegedabagacad
 # 補完時の色の設定
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 # ZLS_COLORSとは？
@@ -133,7 +128,5 @@ esac
 # ------------------------------
 # Other Settings
 # ------------------------------
-
-
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
