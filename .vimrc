@@ -155,10 +155,6 @@ au BufNewFile,BufRead *.hoge  set ft=confluencewiki
 au BufNewFile,BufRead Fastfile set ft=ruby
 au BufNewFile,BufRead *.cap set ft=ruby
 
-" au BufNewFile,BufRead *.mustache  set ft=html
-
-" au BufNewFile,BufRead *.mm  set ft=objc
-
 " 新しい行を作ったときに高度な自動インデントを行う
 set smartindent
 
@@ -300,10 +296,8 @@ call pathogen#infect()
    set conceallevel=2 concealcursor=i
  endif
 
-
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/snippets'
-
 
 """"""""""""""""""""""""""""""
 "挿入モード時、ステータスラインの色を変更
@@ -311,23 +305,23 @@ let g:neosnippet#snippets_directory='~/.vim/snippets'
 let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
 
 if has('syntax')
-augroup InsertHook
-autocmd!
-autocmd InsertEnter * call s:StatusLine('Enter')
-autocmd InsertLeave * call s:StatusLine('Leave')
-augroup END
+  augroup InsertHook
+    autocmd!
+    autocmd InsertEnter * call s:StatusLine('Enter')
+    autocmd InsertLeave * call s:StatusLine('Leave')
+  augroup END
 endif
 
-  let s:slhlcmd = ''
+let s:slhlcmd = ''
 function! s:StatusLine(mode)
   if a:mode == 'Enter'
-  silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
-  silent exec g:hi_insert
+    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+    silent exec g:hi_insert
   else
-  highlight clear StatusLine
-  silent exec s:slhlcmd
+    highlight clear StatusLine
+    silent exec s:slhlcmd
   endif
-  endfunction
+endfunction
 
 function! s:GetHighlight(hi)
   redir => hl
@@ -336,22 +330,7 @@ function! s:GetHighlight(hi)
   let hl = substitute(hl, '[\r\n]', '', 'g')
   let hl = substitute(hl, 'xxx', '', '')
   return hl
-  endfunction
-
-"if !exists('g:neocomplcache_force_omni_patterns')
-"  let g:neocomplcache_force_omni_patterns = {}
-"endif
-"let g:neocomplcache_force_overwrite_completefunc = 1
-"let g:neocomplcache_force_omni_patterns.c =
-"  \ '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplcache_force_omni_patterns.cpp =
-"  \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-"let g:neocomplcache_force_omni_patterns.objc =
-"  \ '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplcache_force_omni_patterns.objcpp =
-"  \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-"let g:clang_complete_auto = 0
-"let g:clang_auto_select = 0
+endfunction
 
 " Disable AutoComplPop.
  let g:acp_enableAtStartup = 0
@@ -367,7 +346,6 @@ function! s:GetHighlight(hi)
  let g:neocomplcache_dictionary_filetype_lists = {
      \ 'default' : ''
          \ }
-
 
 """ clang_complete
 "let g:clang_complete_auto = 1 
@@ -433,18 +411,10 @@ endfunction
 
 au! BufWritePost *.pm call s:check_package_name()
 
-" 拡張子でのフォーマット設定
-"augroup filetypedetect
-"autocmd! BufNewFile,BufRead *.t setf perl
-"autocmd! BufNewFile,BufRead *.psgi setf perl
-"autocmd! BufNewFile,BufRead *.tt setf tt2html
-"augroup END
-
 "コンパイラの指定
 autocmd FileType perl,cgi :compiler perl  
 
 " ハイライト
-" 前の方でやると適用されないのでとりあえずここに
 syntax on
 
 if &term == "screen"
@@ -454,8 +424,4 @@ endif
 " 隠しファイルをデフォルトで表示させる
 let NERDTreeShowHidden = 1
  
-" デフォルトでツリーを表示させる
-" autocmd VimEnter * execute 'NERDTree'
-
-
 let g:gitgutter_max_signs = 1000
