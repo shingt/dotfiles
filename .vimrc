@@ -154,6 +154,7 @@ au BufNewFile,BufRead *.hoge  set ft=confluencewiki
 
 au BufNewFile,BufRead Fastfile set ft=ruby
 au BufNewFile,BufRead *.cap set ft=ruby
+au BufNewFile,BufRead *.hamlc set ft=haml
 
 " au BufNewFile,BufRead *.mustache  set ft=html
 
