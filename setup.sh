@@ -16,4 +16,3 @@ mkdir util
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 source util/git-completion.bash
 
-

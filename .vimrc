@@ -9,9 +9,6 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundle 'Shougo/neocomplcache.git'
-"NeoBundle 'Shougo/neocomplcache-clang_complete.git'
-"NeoBundle 'Rip-Rip/clang_complete.git'
-"NeoBundle 'git://github.com/tokorom/clang_complete-getopts-ios.git'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -42,26 +39,17 @@ NeoBundle 'rhysd/github-complete.vim'
 " vimのヤンク・スペースにクリップボード利用
 NeoBundle 'git://github.com/kana/vim-fakeclip.git'
 
-" clang
-"NeoBundleLazy 'git@github.com:tokorom/clang_complete.git', 'for-ios',{'autoload': {'filetypes': ['c', 'cpp', 'objc']}}
-
 " syntax check
 NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c', 'objc']}}
-
-" gitの差分表示
-"NeoBundle 'airblade/vim-gitgutter'
 
 " html
 NeoBundleLazy 'ZenCoding.vim', {'autoload': {'filetypes': ['html']}}
 
 " ruby
 NeoBundleLazy 'git://github.com/tpope/vim-rails.git', {'autoload':{'filetypes': ['ruby']}}
-" NeoBundleLazy 'git://github.com/tobiassvn/vim-gemfile.git', {'autoload':{'filetypes': ['ruby']}}
 
 " Perl
 NeoBundleLazy 'git://github.com/vim-perl/vim-perl.git'
-" http://kazuph.github.io/presentation/yapc_vim_2013_github/
-" http://mattn.kaoriya.net/software/lang/perl/20100901231137.htm
 NeoBundleLazy 'c9s/perlomni.vim'
 
 " Perlのローカルのモジュールにパスを通す．
@@ -71,10 +59,6 @@ NeoBundle "y-uuki/perl-local-lib-path.vim"
 NeoBundleLazy 'git://github.com/yko/mojo.vim.git'
 " Configurations variables:
 :let mojo_highlight_data = 1
-"Highlight embedded Perl code in __DATA__ sections of your Perl files.
-":let mojo_disable_html = 1
-" Don't highlight html inside __DATA__ templates - Perl code only.
-":let mojo_no_helpers = 1
 
 " CoffeeScript
 NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git'
@@ -347,12 +331,6 @@ endfunction
  let g:neocomplcache_dictionary_filetype_lists = {
      \ 'default' : ''
          \ }
-
-""" clang_complete
-"let g:clang_complete_auto = 1 
-"let g:clang_use_library   = 1 
-"let g:clang_library_path  = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
-"let g:clang_user_options  = '2>/dev/null || exit 0"'
 
 "" ---- perl -----
 augroup filetypedetect
