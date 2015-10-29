@@ -21,6 +21,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'VimClojure'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'jpalardy/vim-slime'
@@ -37,6 +38,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'rhysd/github-complete.vim'
 
 NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+NeoBundle 'rking/ag.vim'
 
 " vimのヤンク・スペースにクリップボード利用
 NeoBundle 'git://github.com/kana/vim-fakeclip.git'
@@ -60,7 +62,7 @@ NeoBundle "y-uuki/perl-local-lib-path.vim"
 " Mojo
 NeoBundleLazy 'git://github.com/yko/mojo.vim.git'
 " Configurations variables:
-:let mojo_highlight_data = 1
+let mojo_highlight_data = 1
 
 " CoffeeScript
 NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git'
@@ -397,14 +399,22 @@ au! BufWritePost *.pm call s:check_package_name()
 "コンパイラの指定
 autocmd FileType perl,cgi :compiler perl  
 
-" ハイライト
 syntax on
 
 if &term == "screen"
     set t_Co=256
 endif
 
-" 隠しファイルをデフォルトで表示させる
 let NERDTreeShowHidden = 1
  
 let g:gitgutter_max_signs = 1000
+
+nnoremap <silent> ,ag :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> ,cag :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+
+" unite grep に ag(The Silver Searcher) を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
