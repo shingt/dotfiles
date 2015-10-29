@@ -36,6 +36,8 @@ NeoBundle 'toyamarinyon/vim-swift'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'rhysd/github-complete.vim'
 
+NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
 " vimのヤンク・スペースにクリップボード利用
 NeoBundle 'git://github.com/kana/vim-fakeclip.git'
 
@@ -238,6 +240,8 @@ cnoremap <C-e>    <End>
 cnoremap <C-d>    <Del>
 cnoremap <C-h>    <BackSpace>
 cnoremap <S-Tab>  <C-d>
+
+nnoremap <C-p>    :FZF<CR>
 
 nnoremap [MyPrefix]o             A;<Esc>o
 
