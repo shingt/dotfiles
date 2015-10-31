@@ -414,9 +414,6 @@ let g:gitgutter_max_signs = 1000
 nnoremap <silent> ,ag :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> ,cag :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
 
-" insert modeで開始
-let g:unite_enable_start_insert = 1
-
 " 大文字小文字を区別しない
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
