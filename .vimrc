@@ -21,6 +21,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'VimClojure'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle "git://github.com/osyo-manga/unite-quickfix.git"
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -36,6 +37,7 @@ NeoBundle 'toyamarinyon/vim-swift'
 
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'rhysd/github-complete.vim'
+NeoBundle 'w0ng/vim-hybrid'
 
 NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 NeoBundle 'rking/ag.vim'
@@ -100,11 +102,12 @@ set ambiwidth=double
 " 挿入モードでのバックスペースの挙動設定
 set backspace=indent,eol,start
 
+" 行番号の色を設定
+autocmd ColorScheme * highlight LineNr ctermfg=98
+
 " カラースキーマを設定
 set background=dark
-colorscheme molokai 
-" If you prefer the scheme to match the original monokai background color
-let g:molokai_original = 1
+colorscheme hybrid 
 
 set number
 set showmatch
@@ -201,7 +204,7 @@ set winaltkeys=no
 inoremap  <C-l>   <Esc>:<C-u>w<CR>
 
 " カレント行ハイライト
-"set cursorline
+" set cursorline
 
 " カーソル点滅
 let &t_ti.="\e[1 q"
