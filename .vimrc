@@ -61,8 +61,6 @@ NeoBundleLazy 'c9s/perlomni.vim'
 " Perlのローカルのモジュールにパスを通す．
 NeoBundle "y-uuki/perl-local-lib-path.vim"
 
-NeoBundleLazy 'git://github.com/todesking/ruby_hl_lvar.vim.git'
-
 " Mojo
 NeoBundleLazy 'git://github.com/yko/mojo.vim.git'
 " Configurations variables:
