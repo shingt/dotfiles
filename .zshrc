@@ -5,6 +5,16 @@ fi
 source ~/dotfiles/.zsh.d/zshrc
 
 # ------------------------------
+# For git-completion.zsh
+# ------------------------------
+
+if which brew > /dev/null; then
+  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+else
+  fpath=(~/.zsh.d/completion $fpath)
+fi
+
+# ------------------------------
 # General Settings
 # ------------------------------
 
@@ -130,3 +140,4 @@ esac
 # ------------------------------
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
