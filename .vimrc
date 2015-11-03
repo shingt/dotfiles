@@ -30,6 +30,7 @@ NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'git://github.com/mileszs/ack.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'yuku-t/vim-ref-ri' " Requires w3m or lynx as well
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree' 
@@ -457,3 +458,10 @@ if executable('ag')
   let g:unite_source_grep_recursive_opt = ''
 endif
 
+" Ruby docs
+let g:ref_open                    = 'split'
+nnoremap ri :<C-U>Unite ref/ri       -default-action=split -input=
+
+aug MyAutoCmd
+  au FileType ruby,ruby.rspec nnoremap <silent><buffer>KK :<C-U>Unite -no-start-insert ref/ri   -input=<C-R><C-W><CR>
+aug END
