@@ -42,6 +42,9 @@ NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 NeoBundle 'rking/ag.vim'
 
+NeoBundle "kana/vim-smartinput"
+NeoBundle "cohama/vim-smartinput-endwise"
+
 " vimのヤンク・スペースにクリップボード利用
 NeoBundle 'git://github.com/kana/vim-fakeclip.git'
 
@@ -51,9 +54,10 @@ NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload':{'filetyp
 " html
 NeoBundleLazy 'ZenCoding.vim', {'autoload': {'filetypes': ['html']}}
 
-" ruby
+" rails
 NeoBundleLazy 'git://github.com/tpope/vim-rails.git', {'autoload':{'filetypes': ['ruby']}}
 NeoBundleLazy 'git://github.com/tpope/vim-bundler.git'
+NeoBundleLazy 'git@github.com:basyura/unite-rails.git'
 
 " Perl
 NeoBundleLazy 'git://github.com/vim-perl/vim-perl.git'
