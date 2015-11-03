@@ -53,6 +53,7 @@ NeoBundleLazy 'ZenCoding.vim', {'autoload': {'filetypes': ['html']}}
 
 " ruby
 NeoBundleLazy 'git://github.com/tpope/vim-rails.git', {'autoload':{'filetypes': ['ruby']}}
+NeoBundleLazy 'git://github.com/tpope/vim-bundler.git'
 
 " Perl
 NeoBundleLazy 'git://github.com/vim-perl/vim-perl.git'
