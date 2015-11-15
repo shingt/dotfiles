@@ -5,7 +5,7 @@ filetype off
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
- 
+
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundle 'Shougo/neocomplcache.git'
@@ -26,7 +26,6 @@ NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'jpalardy/vim-slime'
-"NeoBundle 'scrooloose/syntastic'
 NeoBundle 'git://github.com/mileszs/ack.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'thinca/vim-ref'
@@ -92,20 +91,20 @@ NeoBundleLazy 'mattn/flappyvird-vim.git'
 NeoBundleLazy 'juvenn/mustache.git'
 
 NeoBundleLazy 'alpaca-tc/alpaca_tags', {
-              \    'depends': ['Shougo/vimproc'],
-              \    'autoload' : {
-              \       'commands' : [
-              \          { 'name' : 'AlpacaTagsBundle', 'complete': 'customlist,alpaca_tags#complete_source' },
-              \          { 'name' : 'AlpacaTagsUpdate', 'complete': 'customlist,alpaca_tags#complete_source' },
-              \          'AlpacaTagsSet', 'AlpacaTagsCleanCache', 'AlpacaTagsEnable', 'AlpacaTagsDisable', 'AlpacaTagsKillProcess', 'AlpacaTagsProcessStatus',
-              \       ],
-              \    }
-              \ }
+      \    'depends': ['Shougo/vimproc'],
+      \    'autoload' : {
+      \       'commands' : [
+      \          { 'name' : 'AlpacaTagsBundle', 'complete': 'customlist,alpaca_tags#complete_source' },
+      \          { 'name' : 'AlpacaTagsUpdate', 'complete': 'customlist,alpaca_tags#complete_source' },
+      \          'AlpacaTagsSet', 'AlpacaTagsCleanCache', 'AlpacaTagsEnable', 'AlpacaTagsDisable', 'AlpacaTagsKillProcess', 'AlpacaTagsProcessStatus',
+      \       ],
+      \    }
+      \ }
 
 let g:alpaca_tags#config = {
-                       \    '_' : '-R . --sort=yes',
-                       \    'ruby': '--languages=+Ruby',
-                       \ }
+      \    '_' : '-R . --sort=yes',
+      \    'ruby': '--languages=+Ruby',
+      \ }
 
 filetype plugin indent on     " required!
 filetype indent on
@@ -115,7 +114,7 @@ augroup AlpacaTags
   if exists(':AlpacaTags')
     autocmd BufWritePost Gemfile AlpacaTagsBundle
     autocmd BufEnter * AlpacaTagsSet
-"    autocmd BufWritePost * AlpacaTagsUpdate
+    "    autocmd BufWritePost * AlpacaTagsUpdate
   endif
 augroup END
 
@@ -304,22 +303,22 @@ call pathogen#infect()
 
 "" --- snippet ----
 " Plugin key-mappings.
- imap <C-k>     <Plug>(neosnippet_expand_or_jump)
- smap <C-k>     <Plug>(neosnippet_expand_or_jump)
- xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
- " SuperTab like snippets behavior.
- imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
- \ "\<Plug>(neosnippet_expand_or_jump)"
- \: pumvisible() ? "\<C-n>" : "\<TAB>"
- smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
- \ "\<Plug>(neosnippet_expand_or_jump)"
- \: "\<TAB>"
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: "\<TAB>"
 
- " For snippet_complete marker.
- if has('conceal')
-   set conceallevel=2 concealcursor=i
- endif
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
 
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/snippets'
@@ -358,19 +357,19 @@ function! s:GetHighlight(hi)
 endfunction
 
 " Disable AutoComplPop.
- let g:acp_enableAtStartup = 0
- " Use neocomplcache.
- let g:neocomplcache_enable_at_startup = 1
- " Use smartcase.
- let g:neocomplcache_enable_smart_case = 1
- " Set minimum syntax keyword length.
- let g:neocomplcache_min_syntax_length = 3
- let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
- " Define dictionary.
- let g:neocomplcache_dictionary_filetype_lists = {
-     \ 'default' : ''
-         \ }
+" Define dictionary.
+let g:neocomplcache_dictionary_filetype_lists = {
+      \ 'default' : ''
+      \ }
 
 "" ---- perl -----
 augroup filetypedetect
@@ -390,42 +389,42 @@ autocmd BufNewFile *.t  0r $HOME/.vim/template/perl-test.txt
 
 " .pmファイルのテンプレート
 function! s:pm_template()
-    let path = substitute(expand('%'), '.*lib/', '', 'g')
-    let path = substitute(path, '[\\/]', '::', 'g')
-    let path = substitute(path, '\.pm$', '', 'g')
+  let path = substitute(expand('%'), '.*lib/', '', 'g')
+  let path = substitute(path, '[\\/]', '::', 'g')
+  let path = substitute(path, '\.pm$', '', 'g')
 
-    call append(0, 'package ' . path . ';')
-    call append(1, 'use strict;')
-    call append(2, 'use warnings;')
-    call append(3, 'use utf8;')
-    call append(4, '')
-    call append(5, '')
-    call append(6, '')
-    call append(7, '1;')
-    call cursor(6, 0)
-    " echomsg path
+  call append(0, 'package ' . path . ';')
+  call append(1, 'use strict;')
+  call append(2, 'use warnings;')
+  call append(3, 'use utf8;')
+  call append(4, '')
+  call append(5, '')
+  call append(6, '')
+  call append(7, '1;')
+  call cursor(6, 0)
+  " echomsg path
 endfunction
 autocmd BufNewFile *.pm call s:pm_template()
 
 " パッケージ名の自動チェック
 function! s:get_package_name()
-    let mx = '^\s*package\s\+\([^ ;]\+\)'
-    for line in getline(1, 5)
-        if line =~ mx
-        return substitute(matchstr(line, mx), mx, '\1', '')
-        endif
-    endfor
-    return ""
+  let mx = '^\s*package\s\+\([^ ;]\+\)'
+  for line in getline(1, 5)
+    if line =~ mx
+      return substitute(matchstr(line, mx), mx, '\1', '')
+    endif
+  endfor
+  return ""
 endfunction
 
 function! s:check_package_name()
-    let path = substitute(expand('%:p'), '\\', '/', 'g')
-    let name = substitute(s:get_package_name(), '::', '/', 'g') . '.pm'
-    if path[-len(name):] != name
-        echohl WarningMsg
-        echomsg "Package name differs from a saved path."
-        echohl None
-    endif
+  let path = substitute(expand('%:p'), '\\', '/', 'g')
+  let name = substitute(s:get_package_name(), '::', '/', 'g') . '.pm'
+  if path[-len(name):] != name
+    echohl WarningMsg
+    echomsg "Package name differs from a saved path."
+    echohl None
+  endif
 endfunction
 
 au! BufWritePost *.pm call s:check_package_name()
@@ -436,11 +435,11 @@ autocmd FileType perl,cgi :compiler perl
 syntax on
 
 if &term == "screen"
-    set t_Co=256
+  set t_Co=256
 endif
 
 let NERDTreeShowHidden = 1
- 
+
 let g:gitgutter_max_signs = 1000
 
 nnoremap <silent> ,ag :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
@@ -465,3 +464,4 @@ nnoremap ri :<C-U>Unite ref/ri       -default-action=split -input=
 aug MyAutoCmd
   au FileType ruby,ruby.rspec nnoremap <silent><buffer>KK :<C-U>Unite -no-start-insert ref/ri   -input=<C-R><C-W><CR>
 aug END
+
