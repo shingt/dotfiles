@@ -33,7 +33,7 @@ NeoBundle 'yuku-t/vim-ref-ri' " Requires w3m or lynx as well
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree' 
-NeoBundle 'toyamarinyon/vim-swift'
+NeoBundle 'keith/swift.vim'
 
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'rhysd/github-complete.vim'
