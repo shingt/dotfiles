@@ -390,6 +390,8 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 nnoremap <C-]> gt
 nnoremap <C-[> gT
 
+nnoremap <C-\> :tabnew<CR>
+
 let g:gitgutter_max_signs = 1000
 
 nnoremap <silent> ,ag :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
