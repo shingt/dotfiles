@@ -384,7 +384,11 @@ if &term == "screen"
   set t_Co=256
 endif
 
+" NERDTree
 let NERDTreeShowHidden = 1
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <C-]> gt
+nnoremap <C-[> gT
 
 let g:gitgutter_max_signs = 1000
 
