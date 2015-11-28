@@ -387,8 +387,8 @@ endif
 " NERDTree
 let NERDTreeShowHidden = 1
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-nnoremap <C-]> gt
-nnoremap <C-[> gT
+nnoremap <C-h> gt
+nnoremap <C-l> gT
 
 nnoremap <C-\> :tabnew<CR>
 
