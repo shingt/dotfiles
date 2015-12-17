@@ -142,6 +142,7 @@ augroup filetypedetect
   autocmd! BufNewFile,BufRead *.hoge  set ft=confluencewiki
   autocmd! BufNewFile,BufRead Fastfile set ft=ruby
   autocmd! BufNewFile,BufRead *.cap set ft=ruby
+  autocmd! BufNewFile,BufRead *.jbuilder set ft=ruby
   autocmd! BufNewFile,BufRead *.hamlc set ft=haml
   autocmd! BufNewFile,BufRead *.t    setf perl
   autocmd! BufNewFile,BufRead *.psgi setf perl
