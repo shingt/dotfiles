@@ -15,6 +15,7 @@ export PATH=/usr/local/share/npm/bin:$PATH
 export NODE_PATH=/usr/local/lib/node
 export PATH=/usr/local/share/npm/lib/node_modules:$PATH
 export PATH=/usr/local/share/npm/bin/node-dev:$PATH
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # mysql
 export PATH=/usr/local/mysql/bin:$PATH
@@ -97,6 +98,8 @@ alias tma='tmux attach'
 alias tml='tmux list-window'
 alias g='git'
 alias sf='sift'
+alias sap='envchain aws sap'
+alias -g b='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 
 ### RVM ###
 if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
