@@ -31,7 +31,6 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri' " Requires w3m or lynx as well
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree' 
 NeoBundle 'keith/swift.vim'
 
@@ -241,7 +240,6 @@ cnoremap <C-d>    <Del>
 cnoremap <C-h>    <BackSpace>
 cnoremap <S-Tab>  <C-d>
 
-"nnoremap <C-p>    :FZF<CR>
 nnoremap <silent> <C-p> :call fzf#run({})<CR>
 
 function! s:buflist()
