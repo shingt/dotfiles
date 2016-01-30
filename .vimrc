@@ -111,7 +111,6 @@ set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp,ucs-2,latin1
 set fileformats=unix,mac,dos
 set ambiwidth=double
 
-" 挿入モードでのバックスペースの挙動設定
 set backspace=indent,eol,start
 
 autocmd ColorScheme * highlight LineNr ctermfg=98
@@ -163,30 +162,22 @@ set incsearch
 set hlsearch
 set ignorecase smartcase
 
-" vimgrep時に自動でQuickFixを開く設定
 autocmd QuickfixCmdPost vimgrep cw
 
-" カーソルを行頭、行末で止まらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
 
-" 日本語の行の連結時には空白を入力しない。
 set formatoptions+=mM
 
-" 画面最後の行をできる限り表示する。
 set display+=lastline
 
-" 補完の設定
 set completeopt=menu,preview,longest
 
-" 日付の自動入力のフォーマット
 let autodate_format="%Y-%m-%d"
 
-" 折り畳み設定
 set foldmethod=marker
 
 set clipboard=unnamed
 
-" 自動改行防止
 set tw=0
 
 " keybindings 
@@ -262,19 +253,13 @@ nnoremap <silent> ,b :call fzf#run({
 
 nnoremap [MyPrefix]o             A;<Esc>o
 
-" 名前付きレジスタにヤンク
 nnoremap [MyPrefix]y "yy
-" 名前付きレジスタにヤンクして削除
 nnoremap [MyPrefix]d "yd
-" 名前付きレジスタからペースト
 nnoremap [MyPrefix]p "yp
 nnoremap [MyPrefix]P "yP
-" クリップボードの内容を名前付きレジスタに逃がす
 nnoremap [MyPrefix]" :<C-u>let @y=@*<CR>:echo @y<CR>
-" 単語の置き換え(クリップボードの内容を保つ)
 nnoremap [MyPrefix]r "rciw<C-r>*<Esc>
 
-" 全選択
 nnoremap [MyPrefix]<C-a> ggVG
 filetype off
 
@@ -283,7 +268,6 @@ filetype off                   " required!
 
 call pathogen#infect()
 
-"" --- snippet ----
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -402,7 +386,6 @@ if &term == "screen"
   set t_Co=256
 endif
 
-" NERDTree
 let NERDTreeShowHidden = 1
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 nnoremap <C-h> gt
