@@ -231,7 +231,7 @@ cnoremap <C-d>    <Del>
 cnoremap <C-h>    <BackSpace>
 cnoremap <S-Tab>  <C-d>
 
-nnoremap <silent> <C-p> :call fzf#run({})<CR>
+nnoremap <silent> <C-p> :FZF<CR>
 
 function! s:buflist()
   redir => ls

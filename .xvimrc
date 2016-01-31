@@ -4,6 +4,8 @@ set incsearch
 set hlsearch
 set laststatus=2
 
+set blinkcursor
+
 " ---------- general ----------
 
 noremap [MyPrefix] <Nop>
