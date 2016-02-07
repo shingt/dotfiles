@@ -29,7 +29,7 @@ NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'git://github.com/mileszs/ack.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'yuku-t/vim-ref-ri' " Requires w3m or lynx as well
+NeoBundle 'yuku-t/vim-ref-ri' " Requires w3m or lynx
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/nerdtree' 
 NeoBundle 'keith/swift.vim'
@@ -52,7 +52,6 @@ NeoBundle 'fatih/vim-go'
 " syntax check
 NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c', 'objc']}}
 
-" html
 NeoBundleLazy 'ZenCoding.vim', {'autoload': {'filetypes': ['html']}}
 
 " Rails
@@ -166,23 +165,15 @@ set ignorecase smartcase
 
 autocmd QuickfixCmdPost vimgrep cw
 
-set whichwrap=b,s,h,l,<,>,[,]
-
-set formatoptions+=mM
-
-set display+=lastline
-
-set completeopt=menu,preview,longest
-
 let autodate_format="%Y-%m-%d"
-
+set whichwrap=b,s,h,l,<,>,[,]
+set formatoptions+=mM
+set display+=lastline
+set completeopt=menu,preview,longest
 set foldmethod=marker
-
 set clipboard=unnamed
-
 set tw=0
 
-" keybindings 
 noremap [MyPrefix] <Nop>
 map <Space> [MyPrefix]
 noremap [MyDoublePrefix] <Nop>
@@ -191,17 +182,14 @@ map <Space><Space> [MyDoublePrefix]
 set winaltkeys=no
 inoremap  <C-l>   <Esc>:<C-u>w<CR>
 
-" カーソル点滅
+" Blink cursol
 let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
 
-" ---------- for MacVim ----------
-
+" for MacVim
 nnoremap <S-C>   c$
-
-" ---------- move ----------
 
 noremap  <silent> <C-a>    0
 noremap  <silent> <C-e>    $
@@ -214,17 +202,12 @@ vnoremap H h?(<CR>l
 nnoremap L l/)<CR>:noh<CR>h
 nnoremap H h?(<CR>:noh<CR>l
 
-" ---------- insert mode ----------
-
 inoremap <C-d>     <Delete>
-
-" ---------- visual mode ----------
 
 nnoremap gc   '[v']
 vnoremap gc   :<C-u>normal gc<Enter>
 onoremap gc   :<C-u>normal gc<Enter>
 
-" ---------- command mode ----------
 cnoremap <C-f>    <Right>
 cnoremap <C-b>    <Left>
 cnoremap <C-a>    <Home>
@@ -265,8 +248,8 @@ nnoremap [MyPrefix]r "rciw<C-r>*<Esc>
 nnoremap [MyPrefix]<C-a> ggVG
 filetype off
 
-set nocompatible               " be iMproved
-filetype off                   " required!
+set nocompatible
+filetype off
 
 call pathogen#infect()
 
@@ -336,8 +319,7 @@ let g:neocomplcache_dictionary_filetype_lists = {
       \ 'default' : ''
       \ }
 
-" === perl ===
-
+" Perl
 autocmd BufNewFile *.pl 0r $HOME/.vim/template/perl-script.txt
 autocmd BufNewFile *.t  0r $HOME/.vim/template/perl-test.txt
 
@@ -392,7 +374,6 @@ let NERDTreeShowHidden = 1
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 nnoremap <C-h> gt
 nnoremap <C-l> gT
-
 nnoremap <C-\> :tabnew<CR>
 
 let g:gitgutter_max_signs = 1000
@@ -412,8 +393,8 @@ if executable('ag')
 endif
 
 " Ruby docs
-let g:ref_open                    = 'split'
-nnoremap ri :<C-U>Unite ref/ri       -default-action=split -input=
+let g:ref_open = 'split'
+nnoremap ri :<C-U>Unite ref/ri -default-action=split -input=
 
 aug MyAutoCmd
   au FileType ruby,ruby.rspec nnoremap <silent><buffer>KK :<C-U>Unite -no-start-insert ref/ri   -input=<C-R><C-W><CR>
