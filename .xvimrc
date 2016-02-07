@@ -6,8 +6,6 @@ set laststatus=2
 
 set blinkcursor
 
-" ---------- general ----------
-
 noremap [MyPrefix] <Nop>
 map <Space> [MyPrefix]
 noremap [MyDoublePrefix] <Nop>
@@ -16,8 +14,6 @@ map <Space><Space> [MyDoublePrefix]
 "set winaltkeys=no
 inoremap  <C-l>   <Esc>:<C-u>w<CR>
 
-" ---------- move ----------
-
 noremap  <C-a>    0
 noremap  <C-e>    $
 vnoremap L l/)<CR>h
@@ -25,11 +21,7 @@ vnoremap H h?(<CR>l
 nnoremap L l/)<CR>:noh<CR>h
 nnoremap H h?(<CR>:noh<CR>l
 
-" ---------- insert mode ----------
-
 inoremap <C-d>     <Delete>
-
-" ---------- visual mode ----------
 
 nnoremap gc   '[v']
 vnoremap gc   :<C-u>normal gc<Enter>
@@ -45,19 +37,11 @@ onoremap gc   :<C-u>normal gc<Enter>
 "cnoremap <S-Tab>  <C-d>
 
 nnoremap [MyPrefix]o             A;<Esc>o
-
-" 名前付きレジスタにヤンク
 nnoremap [MyPrefix]y "yy
-" 名前付きレジスタにヤンクして削除
 nnoremap [MyPrefix]d "yd
-" 名前付きレジスタからペースト
 nnoremap [MyPrefix]p "yp
 nnoremap [MyPrefix]P "yP
-" クリップボードの内容を名前付きレジスタに逃がす
 nnoremap [MyPrefix]" :<C-u>let @y=@*<CR>:echo @y<CR>
-" 単語の置き換え(クリップボードの内容を保つ)
 nnoremap [MyPrefix]r "rciw<C-r>*<Esc>
-
-" 全選択
 nnoremap [MyPrefix]<C-a> ggVG
 
