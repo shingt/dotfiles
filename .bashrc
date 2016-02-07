@@ -73,7 +73,6 @@ fi
 
 # For go-lang
 if [ `which go 2> /dev/null` ]; then
-  export GOROOT=`go env GOROOT`
   export GOPATH=$HOME
   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi

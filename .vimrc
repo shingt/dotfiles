@@ -47,6 +47,8 @@ NeoBundle "cohama/vim-smartinput-endwise"
 " Use clipboard for yank and space
 NeoBundle 'git://github.com/kana/vim-fakeclip.git'
 
+NeoBundle 'fatih/vim-go'
+
 " syntax check
 NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c', 'objc']}}
 
