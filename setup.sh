@@ -1,9 +1,20 @@
 #!/bin/bash
 
 DOTFILES_DIR=src/github.com/shingt/dotfiles
-for src in `find $HOME/$DOTFILES_DIR -name '.*' | grep -v "$DOTFILES_DIR/.git$"`; do
-  dst=`echo "$src" | sed s:$HOME/$DOTFILES_DIR/::g`
-  ln -sf $src $HOME/$dst
+srcs=(
+  .bash_profile
+  .bashrc
+  .tmux.conf
+  .vim
+  .vimrc
+  .xvimrc
+  .zsh.d
+  .zshenv
+  .zshrc
+)
+
+for src in ${srcs[@]}; do
+  ln -sf $HOME/$DOTFILES_DIR/$src $HOME/$src
 done
 
 cd $HOME/$DOTFILES_DIR
