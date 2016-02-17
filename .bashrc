@@ -96,7 +96,6 @@ alias tm='tmux'
 alias tma='tmux attach'
 alias tml='tmux list-window'
 alias g='git'
-alias sf='sift'
 alias sap='envchain aws sap'
 alias -g b='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 

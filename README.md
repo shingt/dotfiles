@@ -2,6 +2,7 @@
 
 ### Setup
 
-    sh -x ./dotfiles/setup.sh
-
+```sh
+sh -x ./dotfiles/setup.sh
+```
 
