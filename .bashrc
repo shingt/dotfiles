@@ -60,7 +60,6 @@ if [ `uname` = "Darwin" ]; then
   eval "$(rbenv init -)"
 
   alias cla11='clang++ -std=c++11 -stdlib=libc++'
-#  alias tmux="TERM=screen-256color-bce tmux"
 
   ### Heroku Toolbelt
   export PATH="/usr/local/heroku/bin:$PATH"
