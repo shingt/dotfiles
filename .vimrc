@@ -372,8 +372,8 @@ endif
 
 let NERDTreeShowHidden = 1
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-nnoremap <C-h> gt
-nnoremap <C-l> gT
+nnoremap <C-h> gT
+nnoremap <C-l> gt
 nnoremap <C-\> :tabnew<CR>
 
 let g:gitgutter_max_signs = 1000
