@@ -23,6 +23,7 @@ export EDITOR=vim        # エディタをvimに設定
 export LANG=ja_JP.UTF-8  # 文字コードをUTF-8に設定
 export KCODE=u           # KCODEにUTF-8を設定
 export AUTOFEATURE=true  # autotestでfeatureを動かす
+export TERM='xterm-256color'
 
 bindkey -e               # キーバインドをemacsモードに設定
 
@@ -188,3 +189,15 @@ esac
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function _update_ps1()
+{
+    export PROMPT="$(~/src/github.com/carlcarl/powerline-zsh/powerline-zsh.py $?)"
+}
+precmd()
+{
+    _update_ps1
+}
+
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+
