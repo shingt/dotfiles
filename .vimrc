@@ -32,7 +32,9 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri' " Requires w3m or lynx
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/nerdtree' 
-NeoBundle 'keith/swift.vim'
+
+" See: http://qiita.com/shotat/items/7302f937ae623ccc154a
+NeoBundle 'apple-swift', {'type': 'nosync', 'base': '~/.vim/bundle/manual'} 
 
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'rhysd/github-complete.vim'
