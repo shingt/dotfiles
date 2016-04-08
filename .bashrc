@@ -26,6 +26,9 @@ export LC_ALL=ja_JP.UTF-8
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
+# https://github.com/google/google-api-ruby-client/issues/253#issuecomment-169957139
+export SSL_CERT_FILE=/usr/local/etc/openssl/cert.pem
+
 # git
 if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ] && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
   source /usr/local/etc/bash_completion.d/git-prompt.sh
@@ -98,9 +101,6 @@ alias g='git'
 alias sap='envchain aws sap'
 alias -g b='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 
-### RVM ###
-if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
-
 ### For ssh agent-forwarding
 if [ `uname` = "Darwin" ]; then
   if [[ -s ~/.ssh/id_rsa ]] ; then ssh-add ~/.ssh/id_rsa ; fi
@@ -108,8 +108,6 @@ if [ `uname` = "Darwin" ]; then
 fi
 
 eval "$(hub alias -s)"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 propen() {
     local current_branch_name=$(git symbolic-ref --short HEAD | xargs perl -MURI::Escape -e 'print uri_escape($ARGV[0]);')

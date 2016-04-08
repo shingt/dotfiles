@@ -2,7 +2,7 @@ if [ -f ~/.bash_profile ]; then
   source ~/.bash_profile
 fi
 
-DOTFILES_DIR=src/github.com/shingt/dotfiles
+DOTFILES_DIR=.ghq/github.com/shingt/dotfiles
 source ~/$DOTFILES_DIR/.zsh.d/zshrc
 
 # ------------------------------
@@ -185,6 +185,10 @@ esac
 # Other Settings
 # ------------------------------
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# rbenv
+if [ -d ${HOME}/.rbenv  ] ; then
+  export PATH="${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}"
+  eval "$(rbenv init -)"
+fi
