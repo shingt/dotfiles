@@ -64,27 +64,24 @@ if [ `uname` = "Darwin" ]; then
 
   alias cla11='clang++ -std=c++11 -stdlib=libc++'
 
-  ### Heroku Toolbelt
+  # Heroku Toolbelt
   export PATH="/usr/local/heroku/bin:$PATH"
 
-  ### Change iterm2 background 
+  # Change iterm2 background 
 #  alias ssh=~/bin/ssh-host-color
 
 #elif [ `uname` = "Linux" ]; then
 fi
 
-# For go-lang
 if [ `which go 2> /dev/null` ]; then
   export GOPATH=$HOME
   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
-# perlbrew
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
   source ~/perl5/perlbrew/etc/bashrc
 fi
 
-# aliases
 alias be="bundle exec"
 alias perldoc='perldoc5.12'
 # perl module version check
@@ -96,7 +93,7 @@ alias g='git'
 alias sap='envchain aws sap'
 alias -g b='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 
-### For ssh agent-forwarding
+# For ssh agent-forwarding
 if [ `uname` = "Darwin" ]; then
   if [[ -s ~/.ssh/id_rsa ]] ; then ssh-add ~/.ssh/id_rsa ; fi
   if [[ -s ~/.ssh/id_dsa ]] ; then ssh-add ~/.ssh/id_dsa ; fi
