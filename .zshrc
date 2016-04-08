@@ -23,6 +23,7 @@ export EDITOR=vim        # エディタをvimに設定
 export LANG=ja_JP.UTF-8  # 文字コードをUTF-8に設定
 export KCODE=u           # KCODEにUTF-8を設定
 export AUTOFEATURE=true  # autotestでfeatureを動かす
+export TERM='xterm-256color'
 
 bindkey -e               # キーバインドをemacsモードに設定
 
@@ -181,10 +182,6 @@ case "${TERM}" in
     ;;
 esac
 
-# ------------------------------
-# Other Settings
-# ------------------------------
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # rbenv
@@ -192,3 +189,15 @@ if [ -d ${HOME}/.rbenv  ] ; then
   export PATH="${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}"
   eval "$(rbenv init -)"
 fi
+
+function _update_ps1()
+{
+    export PROMPT="$(~/.ghq/github.com/carlcarl/powerline-zsh/powerline-zsh.py $?)"
+}
+precmd()
+{
+    _update_ps1
+}
+
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+
