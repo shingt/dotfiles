@@ -95,8 +95,8 @@ alias -g b='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 
 # For ssh agent-forwarding
 if [ `uname` = "Darwin" ]; then
-  if [[ -s ~/.ssh/id_rsa ]] ; then ssh-add ~/.ssh/id_rsa ; fi
-  if [[ -s ~/.ssh/id_dsa ]] ; then ssh-add ~/.ssh/id_dsa ; fi
+  if [[ -s ~/.ssh/id_rsa ]] ; then ssh-add ~/.ssh/id_rsa > /dev/null 2>&1 ; fi
+  if [[ -s ~/.ssh/id_dsa ]] ; then ssh-add ~/.ssh/id_dsa > /dev/null 2>&1 ; fi
 fi
 
 eval "$(hub alias -s)"

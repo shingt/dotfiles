@@ -2,7 +2,7 @@ if [ -f ~/.bash_profile ]; then
   source ~/.bash_profile
 fi
 
-DOTFILES_DIR=.ghq/github.com/shingt/dotfiles
+DOTFILES_DIR=src/github.com/shingt/dotfiles
 source ~/$DOTFILES_DIR/.zsh.d/zshrc
 
 # ------------------------------
@@ -192,7 +192,7 @@ fi
 
 function _update_ps1()
 {
-    export PROMPT="$(~/.ghq/github.com/carlcarl/powerline-zsh/powerline-zsh.py $?)"
+    export PROMPT="$(~/src/github.com/carlcarl/powerline-zsh/powerline-zsh.py $?)"
 }
 precmd()
 {
