@@ -199,5 +199,5 @@ precmd()
     _update_ps1
 }
 
-if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+#if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
