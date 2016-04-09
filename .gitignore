@@ -3,6 +3,7 @@
 util/*
 .vim/bundle/*
 .vim/bundle/.neobundle/*
+.vim/view
 !.vim/bundle/neobundle.vim
 
 

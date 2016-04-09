@@ -26,6 +26,9 @@ export LC_ALL=ja_JP.UTF-8
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
+# https://github.com/google/google-api-ruby-client/issues/253#issuecomment-169957139
+export SSL_CERT_FILE=/usr/local/etc/openssl/cert.pem
+
 # git
 if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ] && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
   source /usr/local/etc/bash_completion.d/git-prompt.sh
@@ -61,32 +64,24 @@ if [ `uname` = "Darwin" ]; then
 
   alias cla11='clang++ -std=c++11 -stdlib=libc++'
 
-  ### Heroku Toolbelt
+  # Heroku Toolbelt
   export PATH="/usr/local/heroku/bin:$PATH"
 
-  ### Change iterm2 background 
+  # Change iterm2 background 
 #  alias ssh=~/bin/ssh-host-color
 
 #elif [ `uname` = "Linux" ]; then
 fi
 
-# For go-lang
 if [ `which go 2> /dev/null` ]; then
   export GOPATH=$HOME
   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
-# For swift (temporary)
-if [ -f /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift ]; then
-  export PATH=$PATH:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/
-fi
-
-# perlbrew
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
   source ~/perl5/perlbrew/etc/bashrc
 fi
 
-# aliases
 alias be="bundle exec"
 alias perldoc='perldoc5.12'
 # perl module version check
@@ -98,18 +93,13 @@ alias g='git'
 alias sap='envchain aws sap'
 alias -g b='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 
-### RVM ###
-if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
-
-### For ssh agent-forwarding
+# For ssh agent-forwarding
 if [ `uname` = "Darwin" ]; then
   if [[ -s ~/.ssh/id_rsa ]] ; then ssh-add ~/.ssh/id_rsa ; fi
   if [[ -s ~/.ssh/id_dsa ]] ; then ssh-add ~/.ssh/id_dsa ; fi
 fi
 
 eval "$(hub alias -s)"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 propen() {
     local current_branch_name=$(git symbolic-ref --short HEAD | xargs perl -MURI::Escape -e 'print uri_escape($ARGV[0]);')
