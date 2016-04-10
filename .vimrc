@@ -90,6 +90,18 @@ NeoBundleLazy 'alpaca-tc/alpaca_tags', {
       \    }
       \ }
 
+NeoBundleLazy 'kmnk/vim-unite-giti', {
+      \ 'autoload': {
+      \   'unite_sources': [
+      \     'giti', 'giti/branch', 'giti/branch/new', 'giti/branch_all',
+      \     'giti/config', 'giti/log', 'giti/remote', 'giti/status'
+      \   ]
+      \ }}
+
+NeoBundleLazy 'tpope/vim-fugitive', { 'autoload': {
+      \ 'functions' : ['fugitive#head', 'fugitive#detect'],
+      \ 'commands': ['Gcommit', 'Gblame', 'Ggrep', 'Gdiff', 'Gcd'] }}
+
 let g:alpaca_tags#config = {
       \    '_' : '-R . --sort=yes',
       \    'ruby': '--languages=+Ruby',
@@ -124,7 +136,7 @@ colorscheme hybrid
 set number
 set showmatch
 set laststatus=2
-set statusline=%<%f\ %m%r%h%w%y%{'\ \ \/'.(&fenc!=''?&fenc:&enc).'\/'.&ff.'\/'}%=%l,%c%V%8P
+set statusline=%<%f\ %{fugitive#statusline()}\ %m%r%h%w%y%{'\ \ \/'.(&fenc!=''?&fenc:&enc).'\/'.&ff.'\/'}%=%l,%c%V%8P
 set list
 set lcs=tab:>\ 
 set wildmenu
@@ -205,12 +217,7 @@ vnoremap H h?(<CR>l
 nnoremap L l/)<CR>:noh<CR>h
 nnoremap H h?(<CR>:noh<CR>l
 
-inoremap <C-d>     <Delete>
-
-nnoremap gc   '[v']
-vnoremap gc   :<C-u>normal gc<Enter>
-onoremap gc   :<C-u>normal gc<Enter>
-
+inoremap <C-d>    <Delete>
 cnoremap <C-f>    <Right>
 cnoremap <C-b>    <Left>
 cnoremap <C-a>    <Home>
@@ -402,4 +409,33 @@ nnoremap ri :<C-U>Unite ref/ri -default-action=split -input=
 aug MyAutoCmd
   au FileType ruby,ruby.rspec nnoremap <silent><buffer>KK :<C-U>Unite -no-start-insert ref/ri   -input=<C-R><C-W><CR>
 aug END
+
+" fugitive
+nnoremap <silent>ga :Gwrite<CR>
+nnoremap <silent>gb :Gblame<CR>
+nnoremap <silent>gB :Gbrowse<CR>
+nnoremap <silent>gc :Gcommit<CR>
+nnoremap <silent>gM :Gcommit --amend<CR>
+nnoremap <silent>gd :Gdiff<CR>
+let hooks = neobundle#get_hooks('vim-fugitive')
+function! hooks.on_source(bundle)
+  augroup MyGitCmd
+    autocmd!
+    autocmd FileType fugitiveblame vertical res 25
+    autocmd FileType gitcommit,git-diff nnoremap <buffer>q :q<CR>
+  augroup END
+
+  let g:fugitive_git_executable = executable('hub') ? 'hub' : 'git'
+endfunction
+function! hooks.on_post_source(bundle)
+  call fugitive#detect(expand('<amatch>:p'))
+endfunction
+command! FugitiveReload call fugitive#detect(expand('<amatch>:p'))
+unlet hooks
+
+" vim-unite-giti
+nnoremap <silent>gl :Unite giti/log -no-start-insert -horizontal<CR>
+nnoremap <silent>gP :Unite giti/pull_request/base -no-start-insert -horizontal<CR>
+nnoremap <silent>gs :Unite giti/status -no-start-insert -horizontal<CR>
+nnoremap <silent>gh :Unite giti/branch_all -no-start-insert<CR>
 
