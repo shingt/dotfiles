@@ -201,3 +201,18 @@ precmd()
 
 #if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
+# See: http://qiita.com/__hage/items/db024acea35575121b25
+function tmux-remake-socket () {
+    if [ ! $TMUX ]; then
+        return
+    fi
+    tmux_socket_file=`echo $TMUX|awk -F, '{print $1}'`
+    if [ ! -S $tmux_socket_file ]; then
+        mkdir -m700 `dirname $tmux_socket_file` 2> /dev/null
+        killall -SIGUSR1 tmux
+    else
+        echo tmux unix domain socket exists! nothing to do.
+    fi
+    unset tmux_socket_file
+}
+
