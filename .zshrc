@@ -216,3 +216,13 @@ function tmux-remake-socket () {
     unset tmux_socket_file
 }
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /Users/shingt/google-cloud-sdk/path.zsh.inc ]; then
+  source '/Users/shingt/google-cloud-sdk/path.zsh.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /Users/shingt/google-cloud-sdk/completion.zsh.inc ]; then
+  source '/Users/shingt/google-cloud-sdk/completion.zsh.inc'
+fi
