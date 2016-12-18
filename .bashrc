@@ -92,6 +92,7 @@ alias tml='tmux list-window'
 alias g='git'
 alias sap='envchain aws sap'
 alias -g b='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
+alias dl="docker ps -l -q"
 
 # For ssh agent-forwarding
 if [ `uname` = "Darwin" ]; then
