@@ -5,6 +5,7 @@ util/*
 .vim/bundle/.neobundle/*
 .vim/view
 !.vim/bundle/neobundle.vim
+.vim/dein/*
 
 
 # require files

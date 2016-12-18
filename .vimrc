@@ -1,85 +1,95 @@
 autocmd!
 
-set nocompatible
 filetype off
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
+
+let s:dein_dir = fnamemodify('~/.vim/dein/', ':p')
+let s:dein_repo_dir = s:dein_dir . 'repos/github.com/Shougo/dein.vim'
+
+if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_repo_dir)
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+if &runtimepath !~# '/dein.vim'
+    execute 'set runtimepath^=' . s:dein_repo_dir
+endif
 
-NeoBundle 'Shougo/neocomplcache.git'
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc', {
+call dein#begin(s:dein_dir)
+call dein#add('Shougo/dein.vim')
+call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+
+call dein#add('Shougo/neocomplete.vim')
+call dein#add('Shougo/neomru.vim')
+call dein#add('Shougo/neosnippet')
+
+call dein#add('Shougo/neocomplcache.git')
+"call dein#add('Shougo/neobundle.vim')
+call dein#add('Shougo/vimproc', {
       \ 'build' : {
       \     'windows' : 'make -f make_mingw32.mak',
       \     'cygwin' : 'make -f make_cygwin.mak',
       \     'mac' : 'make -f make_mac.mak',
       \     'unix' : 'make -f make_unix.mak',
       \    },
-      \ }
-NeoBundle 'VimClojure'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle "git://github.com/osyo-manga/unite-quickfix.git"
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'git://github.com/mileszs/ack.vim'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'yuku-t/vim-ref-ri' " Requires w3m or lynx
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'scrooloose/nerdtree' 
-NeoBundle 'tpope/vim-obsession'
+      \ })
+call dein#add('VimClojure')
+call dein#add('Shougo/vimshell')
+call dein#add('Shougo/unite.vim')
+call dein#add("osyo-manga/unite-quickfix")
+call dein#add('ujihisa/unite-colorscheme')
+call dein#add('Shougo/neosnippet')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('jpalardy/vim-slime')
+call dein#add('mileszs/ack.vim')
+call dein#add('altercation/vim-colors-solarized')
+call dein#add('thinca/vim-ref')
+call dein#add('yuku-t/vim-ref-ri') " Requires w3m or lynx
+call dein#add('thinca/vim-quickrun')
+call dein#add('scrooloose/nerdtree' )
+call dein#add('tpope/vim-obsession')
 
 " See: http://qiita.com/shotat/items/7302f937ae623ccc154a
-NeoBundle 'apple-swift', {'type': 'nosync', 'base': '~/.vim/bundle/manual'} 
+"call dein#add('apple-swift', {'type': 'nosync', 'base': '~/.vim/bundle/manual'})
 
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'rhysd/github-complete.vim'
-NeoBundle 'w0ng/vim-hybrid'
-
-NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-NeoBundle 'rking/ag.vim'
-
-NeoBundle "kana/vim-smartinput"
-NeoBundle "cohama/vim-smartinput-endwise"
+call dein#add('airblade/vim-gitgutter')
+call dein#add('rhysd/github-complete.vim')
+call dein#add('w0ng/vim-hybrid')
+call dein#add('junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' })
+call dein#add('rking/ag.vim')
+call dein#add("kana/vim-smartinput")
+call dein#add("cohama/vim-smartinput-endwise")
 
 " Use clipboard for yank and space
-NeoBundle 'git://github.com/kana/vim-fakeclip.git'
+call dein#add('kana/vim-fakeclip')
 
-NeoBundle 'fatih/vim-go'
+call dein#add('fatih/vim-go')
+
+"todo: should be lazy from here
 
 " syntax check
-NeoBundleLazy 'git://github.com/scrooloose/syntastic.git', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c', 'objc']}}
-
-NeoBundleLazy 'ZenCoding.vim', {'autoload': {'filetypes': ['html']}}
+call dein#add('vim-syntastic/syntastic', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c', 'objc']}})
+call dein#add('ZenCoding.vim', {'autoload': {'filetypes': ['html']}})
 
 " Rails
-NeoBundleLazy 'git://github.com/tpope/vim-rails.git', {'autoload':{'filetypes': ['ruby']}}
-NeoBundleLazy 'git://github.com/tpope/vim-bundler.git'
-NeoBundleLazy 'git@github.com:basyura/unite-rails.git'
+call dein#add('tpope/vim-rails', {'autoload':{'filetypes': ['ruby']}})
+call dein#add('tpope/vim-bundler')
+call dein#add('basyura/unite-rails')
 
 " Perl
-NeoBundleLazy 'git://github.com/vim-perl/vim-perl.git'
-NeoBundleLazy 'c9s/perlomni.vim'
-NeoBundleLazy "y-uuki/perl-local-lib-path.vim"
+call dein#add('vim-perl/vim-perl')
+call dein#add('c9s/perlomni.vim')
+call dein#add("y-uuki/perl-local-lib-path.vim")
 
 " Configurations variables:
 let mojo_highlight_data = 1
 
-NeoBundleLazy 'git://github.com/kchmck/vim-coffee-script.git'
-NeoBundleLazy 'git://github.com/chrismetcalf/vim-markdown.git', {'autoload':{'filetypes': ['markdown']}}
-NeoBundleLazy "vim-scripts/nginx.vim"
-NeoBundleLazy "ekalinin/Dockerfile.vim"
-NeoBundleLazy 'vim-scripts/confluencewiki.vim'
-NeoBundleLazy 'juvenn/mustache.git'
-
-NeoBundleLazy 'mattn/flappyvird-vim.git'
-
-NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+call dein#add('kchmck/vim-coffee-script')
+call dein#add('chrismetcalf/vim-markdown', {'autoload':{'filetypes': ['markdown']}})
+call dein#add("vim-scripts/nginx.vim")
+call dein#add("ekalinin/Dockerfile.vim")
+call dein#add('vim-scripts/confluencewiki.vim')
+call dein#add('juvenn/mustache.git')
+call dein#add('mattn/flappyvird-vim.git')
+call dein#add('alpaca-tc/alpaca_tags', {
       \    'depends': ['Shougo/vimproc'],
       \    'autoload' : {
       \       'commands' : [
@@ -88,19 +98,26 @@ NeoBundleLazy 'alpaca-tc/alpaca_tags', {
       \          'AlpacaTagsSet', 'AlpacaTagsCleanCache', 'AlpacaTagsEnable', 'AlpacaTagsDisable', 'AlpacaTagsKillProcess', 'AlpacaTagsProcessStatus',
       \       ],
       \    }
-      \ }
+      \ })
 
-NeoBundleLazy 'kmnk/vim-unite-giti', {
+call dein#add('kmnk/vim-unite-giti', {
       \ 'autoload': {
       \   'unite_sources': [
       \     'giti', 'giti/branch', 'giti/branch/new', 'giti/branch_all',
       \     'giti/config', 'giti/log', 'giti/remote', 'giti/status'
       \   ]
-      \ }}
+      \ }})
 
-NeoBundleLazy 'tpope/vim-fugitive', { 'autoload': {
+call dein#add('tpope/vim-fugitive', { 'autoload': {
       \ 'functions' : ['fugitive#head', 'fugitive#detect'],
-      \ 'commands': ['Gcommit', 'Gblame', 'Ggrep', 'Gdiff', 'Gcd'] }}
+      \ 'commands': ['Gcommit', 'Gblame', 'Ggrep', 'Gdiff', 'Gcd'] }})
+
+call dein#end()
+filetype plugin indent on
+syntax enable
+if dein#check_install()
+  call dein#install()
+endif
 
 let g:alpaca_tags#config = {
       \    '_' : '-R . --sort=yes',
@@ -118,7 +135,7 @@ augroup AlpacaTags
   endif
 augroup END
 
-NeoBundleCheck
+"NeoBundleCheck
 
 set imsearch=0
 set iminsert=0
@@ -240,11 +257,11 @@ function! s:bufopen(e)
 endfunction
 
 nnoremap <silent> ,b :call fzf#run({
-\   'source':  reverse(<sid>buflist()),
-\   'sink':    function('<sid>bufopen'),
-\   'options': '+m',
-\   'down':    len(<sid>buflist()) + 2
-\ })<CR>
+      \   'source':  reverse(<sid>buflist()),
+      \   'sink':    function('<sid>bufopen'),
+      \   'options': '+m',
+      \   'down':    len(<sid>buflist()) + 2
+      \ })<CR>
 
 nnoremap [MyPrefix]o             A;<Esc>o
 
