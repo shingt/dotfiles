@@ -66,29 +66,29 @@ call dein#add('fatih/vim-go')
 "todo: should be lazy from here
 
 " syntax check
-call dein#add('vim-syntastic/syntastic', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c', 'objc']}})
-call dein#add('ZenCoding.vim', {'autoload': {'filetypes': ['html']}})
+call dein#add('vim-syntastic/syntastic', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c', 'objc']}}, {'lazy': 1})
+call dein#add('ZenCoding.vim', {'autoload': {'filetypes': ['html']}}, {'lazy': 1})
 
 " Rails
-call dein#add('tpope/vim-rails', {'autoload':{'filetypes': ['ruby']}})
-call dein#add('tpope/vim-bundler')
-call dein#add('basyura/unite-rails')
+call dein#add('tpope/vim-rails', {'autoload':{'filetypes': ['ruby']}}, {'lazy': 1})
+call dein#add('tpope/vim-bundler', {'lazy': 1})
+call dein#add('basyura/unite-rails', {'lazy': 1})
 
 " Perl
-call dein#add('vim-perl/vim-perl')
-call dein#add('c9s/perlomni.vim')
-call dein#add("y-uuki/perl-local-lib-path.vim")
+call dein#add('vim-perl/vim-perl', {'lazy': 1})
+call dein#add('c9s/perlomni.vim', {'lazy': 1})
+call dein#add("y-uuki/perl-local-lib-path.vim", {'lazy': 1})
 
 " Configurations variables:
 let mojo_highlight_data = 1
 
-call dein#add('kchmck/vim-coffee-script')
-call dein#add('chrismetcalf/vim-markdown', {'autoload':{'filetypes': ['markdown']}})
-call dein#add("vim-scripts/nginx.vim")
-call dein#add("ekalinin/Dockerfile.vim")
-call dein#add('vim-scripts/confluencewiki.vim')
-call dein#add('juvenn/mustache.git')
-call dein#add('mattn/flappyvird-vim.git')
+call dein#add('kchmck/vim-coffee-script', {'lazy': 1})
+call dein#add('chrismetcalf/vim-markdown', {'autoload':{'filetypes': ['markdown']}}, {'lazy': 1})
+call dein#add("vim-scripts/nginx.vim", {'lazy': 1})
+call dein#add("ekalinin/Dockerfile.vim", {'lazy': 1})
+call dein#add('vim-scripts/confluencewiki.vim', {'lazy': 1})
+call dein#add('juvenn/mustache.git', {'lazy': 1})
+call dein#add('mattn/flappyvird-vim.git', {'lazy': 1})
 call dein#add('alpaca-tc/alpaca_tags', {
       \    'depends': ['Shougo/vimproc'],
       \    'autoload' : {
@@ -98,7 +98,7 @@ call dein#add('alpaca-tc/alpaca_tags', {
       \          'AlpacaTagsSet', 'AlpacaTagsCleanCache', 'AlpacaTagsEnable', 'AlpacaTagsDisable', 'AlpacaTagsKillProcess', 'AlpacaTagsProcessStatus',
       \       ],
       \    }
-      \ })
+      \ }, {'lazy': 1})
 
 call dein#add('kmnk/vim-unite-giti', {
       \ 'autoload': {
@@ -106,11 +106,11 @@ call dein#add('kmnk/vim-unite-giti', {
       \     'giti', 'giti/branch', 'giti/branch/new', 'giti/branch_all',
       \     'giti/config', 'giti/log', 'giti/remote', 'giti/status'
       \   ]
-      \ }})
+      \ }}, {'lazy': 1})
 
 call dein#add('tpope/vim-fugitive', { 'autoload': {
       \ 'functions' : ['fugitive#head', 'fugitive#detect'],
-      \ 'commands': ['Gcommit', 'Gblame', 'Ggrep', 'Gdiff', 'Gcd'] }})
+      \ 'commands': ['Gcommit', 'Gblame', 'Ggrep', 'Gdiff', 'Gcd'] }}, {'lazy': 1})
 
 call dein#end()
 filetype plugin indent on
