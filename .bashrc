@@ -44,19 +44,10 @@ PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 if [ `uname` = "Darwin" ]; then
   # Setting PATH for Python 2.7
   # The orginal version is saved in .bash_profile.pysave
-  PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-  export PATH
-  export PATH=/usr/local/sbin:$PATH
-  export PATH=/usr/local/bin:$PATH
-  export PATH=/sbin:$PATH
-  export PATH=/bin:$PATH
-  export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+#  PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 
   # OpenCV for python
-  export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
-
-  ANDROIDNDK_HOME=~/android-ndk-r8b
-  PATH=$PATH:${ANDROIDNDK_HOME}
+#  export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 
   # postgres
   export PATH=$PATH:/Applications/Postgres93.app/Contents/MacOS/bin
@@ -66,9 +57,6 @@ if [ `uname` = "Darwin" ]; then
 
   # Heroku Toolbelt
   export PATH="/usr/local/heroku/bin:$PATH"
-
-  # Change iterm2 background 
-#  alias ssh=~/bin/ssh-host-color
 
 #elif [ `uname` = "Linux" ]; then
 fi
@@ -107,3 +95,7 @@ propen() {
     git config --get remote.origin.url | sed -e "s/^.*[:\/]\(.*\/.*\).git$/https:\/\/github.com\/\1\//" | sed -e "s/$/pull\/${current_branch_name}/" | xargs open
 }
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+# Workaround: Not sure why but when tmux is luanched PYTHONPATH is automatically set.
+unset PYTHONPATH
