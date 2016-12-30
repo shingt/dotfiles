@@ -5,10 +5,7 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/opt/lo/bin:$PATH
 export PATH=/sbin:$PATH
 export PATH=/usr/sbin:$PATH
-
-export PATH=/usr/texbin:$PATH           # tex
-export PATH=/usr/local/SPTK/bin:$PATH   # SPTK
-export PATH=~/.rbenv/shims/gem:$PATH    # gem
+export PATH=~/.rbenv/shims/gem:$PATH
 
 # node.js
 export PATH=/usr/local/share/npm/bin:$PATH
@@ -37,15 +34,11 @@ if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ] && [ -f /usr/local/etc/
   export PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
 fi
 
-# For ffmpeg
+# ffmpeg
 LD_LIBRARY_PATH=/usr/local/lib
 PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 
 if [ `uname` = "Darwin" ]; then
-  # Setting PATH for Python 2.7
-  # The orginal version is saved in .bash_profile.pysave
-#  PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-
   # OpenCV for python
 #  export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 
@@ -61,14 +54,16 @@ if [ `uname` = "Darwin" ]; then
 #elif [ `uname` = "Linux" ]; then
 fi
 
+# go
 if [ `which go 2> /dev/null` ]; then
   export GOPATH=$HOME
   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
-if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
-  source ~/perl5/perlbrew/etc/bashrc
-fi
+# python
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+# Workaround: Not sure why but when tmux is luanched PYTHONPATH is automatically set.
+unset PYTHONPATH
 
 alias be="bundle exec"
 alias perldoc='perldoc5.12'
@@ -96,6 +91,3 @@ propen() {
 }
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-# Workaround: Not sure why but when tmux is luanched PYTHONPATH is automatically set.
-unset PYTHONPATH
