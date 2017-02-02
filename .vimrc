@@ -40,7 +40,7 @@ call dein#add('Shougo/neosnippet')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('jpalardy/vim-slime')
 call dein#add('mileszs/ack.vim')
-call dein#add('altercation/vim-colors-solarized')
+call dein#add('davidklsn/vim-sialoquent')
 call dein#add('thinca/vim-ref')
 call dein#add('yuku-t/vim-ref-ri') " Requires w3m or lynx
 call dein#add('thinca/vim-quickrun')
@@ -437,6 +437,9 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 autocmd FileType go :highlight goErr cterm=bold ctermfg=214
 autocmd FileType go :match goErr /\<err\>/
+let g:syntastic_mode_map = { 'mode': 'passive',
+    \ 'active_filetypes': ['go'] }
+let g:syntastic_go_checkers = ['go', 'golint']
 
 " fugitive
 nnoremap <silent>ga :Gwrite<CR>
