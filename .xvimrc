@@ -11,7 +11,6 @@ map <Space> [MyPrefix]
 noremap [MyDoublePrefix] <Nop>
 map <Space><Space> [MyDoublePrefix]
 
-"set winaltkeys=no
 inoremap  <C-l>   <Esc>:<C-u>w<CR>
 
 noremap  <C-a>    0
@@ -26,15 +25,6 @@ inoremap <C-d>     <Delete>
 nnoremap gc   '[v']
 vnoremap gc   :<C-u>normal gc<Enter>
 onoremap gc   :<C-u>normal gc<Enter>
-
-" ---------- command mode ----------
-"cnoremap <C-f>    <Right>
-"cnoremap <C-b>    <Left>
-"cnoremap <C-a>    <Home>
-"cnoremap <C-e>    <End>
-"cnoremap <C-d>    <Del>
-"cnoremap <C-h>    <BackSpace>
-"cnoremap <S-Tab>  <C-d>
 
 nnoremap [MyPrefix]o             A;<Esc>o
 nnoremap [MyPrefix]y "yy
