@@ -15,7 +15,7 @@ endif
 
 call dein#begin(s:dein_dir)
 call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+"call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
 call dein#add('Shougo/neocomplete.vim')
 call dein#add('Shougo/neomru.vim')
@@ -426,6 +426,17 @@ nnoremap ri :<C-U>Unite ref/ri -default-action=split -input=
 aug MyAutoCmd
   au FileType ruby,ruby.rspec nnoremap <silent><buffer>KK :<C-U>Unite -no-start-insert ref/ri   -input=<C-R><C-W><CR>
 aug END
+
+" Go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+autocmd FileType go :match goErr /\<err\>/
 
 " fugitive
 nnoremap <silent>ga :Gwrite<CR>
