@@ -53,6 +53,7 @@ call dein#add('tpope/vim-obsession')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('rhysd/github-complete.vim')
 call dein#add('w0ng/vim-hybrid')
+call dein#add('dracula/vim')
 call dein#add('junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' })
 call dein#add('rking/ag.vim')
 call dein#add("kana/vim-smartinput")
@@ -135,8 +136,6 @@ augroup AlpacaTags
   endif
 augroup END
 
-"NeoBundleCheck
-
 set imsearch=0
 set iminsert=0
 set encoding=utf-8
@@ -146,16 +145,16 @@ set ambiwidth=double
 
 set backspace=indent,eol,start
 
-autocmd ColorScheme * highlight LineNr ctermfg=98
-set background=dark
-colorscheme hybrid 
+"autocmd ColorScheme * highlight LineNr ctermfg=98
+"set background=dark
+colorscheme dracula
 
 set number
 set showmatch
 set laststatus=2
 set statusline=%<%f\ %{fugitive#statusline()}\ %m%r%h%w%y%{'\ \ \/'.(&fenc!=''?&fenc:&enc).'\/'.&ff.'\/'}%=%l,%c%V%8P
-set list
-set lcs=tab:>\ 
+set nolist
+set lcs=tab:\ \ 
 set wildmenu
 set showcmd
 set autoindent
@@ -163,6 +162,8 @@ set expandtab
 set shiftwidth=2
 set smarttab
 set tabstop=2
+
+highlight link EndOfBuffer Ignore
 
 augroup filetypedetect
   autocmd! BufNewFile,BufRead *.pl  set tabstop=4 shiftwidth=4
