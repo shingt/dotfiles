@@ -455,8 +455,9 @@ let g:go_highlight_build_constraints = 1
 autocmd FileType go :highlight goErr cterm=bold ctermfg=214
 autocmd FileType go :match goErr /\<err\>/
 let g:syntastic_mode_map = { 'mode': 'passive',
-    \ 'active_filetypes': ['go', 'ruby'] }
+    \ 'active_filetypes': ['go'] }
 let g:syntastic_go_checkers = ['go', 'golint']
+"let g:syntastic_ruby_checkers = ['rubocop']
 
 " fugitive
 nnoremap <silent>ga :Gwrite<CR>
@@ -486,4 +487,13 @@ nnoremap <silent>gl :Unite giti/log -no-start-insert -horizontal<CR>
 nnoremap <silent>gP :Unite giti/pull_request/base -no-start-insert -horizontal<CR>
 nnoremap <silent>gs :Unite giti/status -no-start-insert -horizontal<CR>
 nnoremap <silent>gh :Unite giti/branch_all -no-start-insert<CR>
+
+augroup AlpacaTags
+  autocmd!
+  if exists(':Tags')
+    autocmd BufWritePost Gemfile TagsBundle
+    autocmd BufEnter * TagsSet
+    " autocmd BufWritePost * TagsUpdate
+  endif
+augroup END
 
