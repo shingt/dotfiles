@@ -22,6 +22,8 @@ call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/neosnippet')
 
 call dein#add('Shougo/neocomplcache.git')
+call dein#add('Shougo/neocomplcache-rsense.vim')
+
 "call dein#add('Shougo/neobundle.vim')
 call dein#add('Shougo/vimproc', {
       \ 'build' : {
@@ -342,6 +344,20 @@ let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+
+" Rsense
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+
+"rsenseのインストールフォルダがデフォルトと異なるので設定
+let g:rsenseHome = "/Users/shingt/.rbenv/shims/rsense"
+let g:rsenseUseOmniFunc = 1
+
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
       \ 'default' : ''
@@ -439,7 +455,7 @@ let g:go_highlight_build_constraints = 1
 autocmd FileType go :highlight goErr cterm=bold ctermfg=214
 autocmd FileType go :match goErr /\<err\>/
 let g:syntastic_mode_map = { 'mode': 'passive',
-    \ 'active_filetypes': ['go'] }
+    \ 'active_filetypes': ['go', 'ruby'] }
 let g:syntastic_go_checkers = ['go', 'golint']
 
 " fugitive
