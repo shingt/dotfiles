@@ -64,6 +64,7 @@ call dein#add("cohama/vim-smartinput-endwise")
 " Use clipboard for yank and space
 call dein#add('kana/vim-fakeclip')
 
+call dein#add('octol/vim-cpp-enhanced-highlight')
 call dein#add('fatih/vim-go')
 
 "todo: should be lazy from here
@@ -458,6 +459,9 @@ let g:syntastic_mode_map = { 'mode': 'passive',
     \ 'active_filetypes': ['go'] }
 let g:syntastic_go_checkers = ['go', 'golint']
 "let g:syntastic_ruby_checkers = ['rubocop']
+
+" C++
+let g:cpp_class_scope_highlight = 1
 
 " fugitive
 nnoremap <silent>ga :Gwrite<CR>
