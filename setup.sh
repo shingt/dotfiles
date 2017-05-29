@@ -17,6 +17,9 @@ for src in ${srcs[@]}; do
   ln -sf $HOME/$DOTFILES_DIR/$src $HOME/$src
 done
 
+mkdir $HOME/.hammerspoon
+ln -sf $HOME/$DOTFILES_DIR/hammerspoon/init.lua $HOME/.hammerspoon/init.lua
+
 cd $HOME/$DOTFILES_DIR
 git submodule init
 git submodule update
