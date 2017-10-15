@@ -26,6 +26,9 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 # https://github.com/google/google-api-ruby-client/issues/253#issuecomment-169957139
 export SSL_CERT_FILE=/usr/local/etc/openssl/cert.pem
 
+# http://mawatari.jp/archives/mac-provisioning-by-homebrew-and-ansible
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
 # git
 if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ] && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
   source /usr/local/etc/bash_completion.d/git-prompt.sh
