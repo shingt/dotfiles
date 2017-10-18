@@ -20,8 +20,6 @@ vnoremap H h?(<CR>l
 nnoremap L l/)<CR>:noh<CR>h
 nnoremap H h?(<CR>:noh<CR>l
 
-inoremap <C-d>     <Delete>
-
 nnoremap gc   '[v']
 vnoremap gc   :<C-u>normal gc<Enter>
 onoremap gc   :<C-u>normal gc<Enter>
