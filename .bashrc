@@ -28,6 +28,9 @@ if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ] && [ -f /usr/local/etc/
   export PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
 fi
 
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # ffmpeg
 LD_LIBRARY_PATH=/usr/local/lib
 PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
@@ -53,22 +56,15 @@ unset PYTHONPATH
 alias be="bundle exec"
 alias tm='tmux'
 alias tma='tmux attach'
-alias tml='tmux list-window'
 alias g='git'
-alias -g b='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
+alias b='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 alias dl="docker ps -l -q"
 
 # For ssh agent-forwarding
-if [ `uname` = "Darwin" ]; then
-  if [[ -s ~/.ssh/id_rsa ]] ; then ssh-add ~/.ssh/id_rsa > /dev/null 2>&1 ; fi
-  if [[ -s ~/.ssh/id_dsa ]] ; then ssh-add ~/.ssh/id_dsa > /dev/null 2>&1 ; fi
-fi
-
-eval "$(hub alias -s)"
+if [[ -s ~/.ssh/id_rsa ]] ; then ssh-add ~/.ssh/id_rsa > /dev/null 2>&1 ; fi
 
 propen() {
     local current_branch_name=$(git symbolic-ref --short HEAD | xargs perl -MURI::Escape -e 'print uri_escape($ARGV[0]);')
     git config --get remote.origin.url | sed -e "s/^.*[:\/]\(.*\/.*\).git$/https:\/\/github.com\/\1\//" | sed -e "s/$/pull\/${current_branch_name}/" | xargs open
 }
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
