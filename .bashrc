@@ -56,9 +56,8 @@ unset PYTHONPATH
 alias be="bundle exec"
 alias tm='tmux'
 alias tma='tmux attach'
-alias g='git'
-alias b='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 alias dl="docker ps -l -q"
+alias g='git'
 
 # For ssh agent-forwarding
 if [[ -s ~/.ssh/id_rsa ]] ; then ssh-add ~/.ssh/id_rsa > /dev/null 2>&1 ; fi

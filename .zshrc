@@ -150,6 +150,12 @@ function open-pull-request () {
 
 alias opr='open-pull-request'
 
+# Global aliases
+alias -g b='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
+alias -g R='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
+alias -g H='`curl -sL https://api.github.com/users/YOUR_USERNAME/repos | jq -r ".[].full_name" | peco --prompt "GITHUB REPOS>" | head -n 1`'
+alias -g LR='`git branch -a | peco --query "remotes/ " --prompt "GIT REMOTE BRANCH>" | head -n 1 | sed "s/remotes\/[^\/]*\/\(\S*\)/\1 \0/"`'
+
 function _update_ps1()
 {
     export PROMPT="$(~/src/github.com/carlcarl/powerline-zsh/powerline-zsh.py $?)"
