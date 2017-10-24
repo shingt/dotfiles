@@ -301,26 +301,6 @@ WORDCHARS="${WORDCHARS}|"
 
 
 # alias
-## ページャーを使いやすくする。
-### grep -r def *.rb L -> grep -r def *.rb |& lv
-alias -g L="|& $PAGER"
-## grepを使いやすくする。
-alias -g G='| grep'
-## 後はおまけ。
-alias -g H='| head'
-alias -g T='| tail'
-alias -g S='| sed'
-
-## 完全に削除。
-alias rr="command rm -rf"
-## ファイル操作を確認する。
-alias rm="rm -i"
-alias cp="cp -i"
-alias mv="mv -i"
-
-## pushd/popdのショートカット。
-alias pd="pushd"
-alias po="popd"
 
 ## lsとpsの設定
 ### ls: できるだけGNU lsを使う。
