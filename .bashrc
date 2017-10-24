@@ -2,7 +2,6 @@
 
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
-export PATH=/opt/lo/bin:$PATH
 export PATH=/sbin:$PATH
 export PATH=/usr/sbin:$PATH
 export PATH=~/.rbenv/shims/gem:$PATH
@@ -10,13 +9,6 @@ export PATH=~/.rbenv/shims/gem:$PATH
 # node.js
 export PATH=/usr/local/share/npm/bin:$PATH
 export NODE_PATH=/usr/local/lib/node
-export PATH=/usr/local/share/npm/lib/node_modules:$PATH
-export PATH=/usr/local/share/npm/bin/node-dev:$PATH
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-
-# mysql
-export PATH=/usr/local/mysql/bin:$PATH
-export PATH=/usr/bin/mysql_config:$PATH
 
 export LANGUAGE=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
@@ -41,19 +33,10 @@ LD_LIBRARY_PATH=/usr/local/lib
 PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 
 if [ `uname` = "Darwin" ]; then
-  # OpenCV for python
-#  export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
-
-  # postgres
-  export PATH=$PATH:/Applications/Postgres93.app/Contents/MacOS/bin
-  eval "$(rbenv init -)"
-
   alias cla11='clang++ -std=c++11 -stdlib=libc++'
 
   # Heroku Toolbelt
   export PATH="/usr/local/heroku/bin:$PATH"
-
-#elif [ `uname` = "Linux" ]; then
 fi
 
 # go
@@ -68,9 +51,6 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 unset PYTHONPATH
 
 alias be="bundle exec"
-alias perldoc='perldoc5.12'
-# perl module version check
-alias pmversion='perl -le '"'"'for $module (@ARGV) { eval "use $module"; print "$module ", ${"$module\::VERSION"} || "not found" }'"'"
 alias tm='tmux'
 alias tma='tmux attach'
 alias tml='tmux list-window'
