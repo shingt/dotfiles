@@ -33,7 +33,7 @@ call dein#add('Shougo/vimproc', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ })
-call dein#add('VimClojure')
+call dein#add('vim-scripts/VimClojure')
 call dein#add('Shougo/vimshell')
 call dein#add('Shougo/unite.vim')
 call dein#add("osyo-manga/unite-quickfix")
@@ -71,7 +71,7 @@ call dein#add('fatih/vim-go')
 
 " syntax check
 call dein#add('vim-syntastic/syntastic', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c', 'objc']}}, {'lazy': 1})
-call dein#add('ZenCoding.vim', {'autoload': {'filetypes': ['html']}}, {'lazy': 1})
+call dein#add('vim-scripts/ZenCoding.vim', {'autoload': {'filetypes': ['html']}}, {'lazy': 1})
 
 " Rails
 call dein#add('tpope/vim-rails', {'autoload':{'filetypes': ['ruby']}}, {'lazy': 1})
