@@ -6,6 +6,7 @@ export PATH=/sbin:$PATH
 export PATH=/usr/sbin:$PATH
 export PATH=~/.rbenv/shims/gem:$PATH
 export PATH=~/Library/Python/2.7/bin:$PATH
+export PATH=~/google-cloud-sdk/bin:$PATH
 
 # node.js
 export PATH=/usr/local/share/npm/bin:$PATH
