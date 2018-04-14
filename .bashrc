@@ -60,6 +60,7 @@ alias tm='tmux'
 alias tma='tmux attach'
 alias dl="docker ps -l -q"
 alias g='git'
+alias gcop='git branch -a --sort=-authordate | cut -b 3- | perl -pe '\''s#^remotes/origin/###'\'' | perl -nlE '\''say if !$c{$_}++'\'' | grep -v -- "->" | peco | xargs git checkout'
 
 # For ssh agent-forwarding
 if [[ -s ~/.ssh/id_rsa ]] ; then ssh-add ~/.ssh/id_rsa > /dev/null 2>&1 ; fi
