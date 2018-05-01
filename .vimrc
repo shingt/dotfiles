@@ -83,14 +83,10 @@ call dein#add('vim-perl/vim-perl', {'lazy': 1})
 call dein#add('c9s/perlomni.vim', {'lazy': 1})
 call dein#add("y-uuki/perl-local-lib-path.vim", {'lazy': 1})
 
-" Configurations variables:
-let mojo_highlight_data = 1
-
 call dein#add('kchmck/vim-coffee-script', {'lazy': 1})
 call dein#add('chrismetcalf/vim-markdown', {'autoload':{'filetypes': ['markdown']}}, {'lazy': 1})
 call dein#add("vim-scripts/nginx.vim", {'lazy': 1})
 call dein#add("ekalinin/Dockerfile.vim", {'lazy': 1})
-call dein#add('vim-scripts/confluencewiki.vim', {'lazy': 1})
 call dein#add('juvenn/mustache.git', {'lazy': 1})
 call dein#add('mattn/flappyvird-vim.git', {'lazy': 1})
 call dein#add('alpaca-tc/alpaca_tags', {
@@ -174,19 +170,10 @@ augroup filetypedetect
   autocmd! BufNewFile,BufRead *.swift  set tabstop=4 shiftwidth=4
   autocmd! BufNewFile,BufRead *.rb  set tabstop=2 shiftwidth=2
   autocmd! BufNewFile,BufRead *.md  set tabstop=2 shiftwidth=2
-  autocmd! BufNewFile,BufRead *.hoge  set ft=confluencewiki
   autocmd! BufNewFile,BufRead Fastfile set ft=ruby
   autocmd! BufNewFile,BufRead *.cap set ft=ruby
   autocmd! BufNewFile,BufRead *.jbuilder set ft=ruby
   autocmd! BufNewFile,BufRead *.hamlc set ft=haml
-  autocmd! BufNewFile,BufRead *.t    setf perl
-  autocmd! BufNewFile,BufRead *.psgi setf perl
-  autocmd! BufNewFile,BufRead *.fcgi setf perl
-  autocmd! BufNewFile,BufRead *.tx   setf html
-  autocmd! BufNewFile,BufRead *.tt   setf tt2html
-  autocmd! BufNewFile,BufRead *.tt2  setf tt2html
-  autocmd! BufNewFile,BufRead cpanfile setf tt2html
-  autocmd! BufNewFile,BufRead *.hoge  setf confluencewiki
 augroup END
 
 set smartindent
