@@ -444,8 +444,7 @@ autocmd FileType go :highlight goErr cterm=bold ctermfg=214
 autocmd FileType go :match goErr /\<err\>/
 let g:syntastic_mode_map = { 'mode': 'passive',
     \ 'active_filetypes': ['go'] }
-let g:syntastic_go_checkers = ['go', 'golint']
-"let g:syntastic_ruby_checkers = ['rubocop']
+"let g:syntastic_go_checkers = ['go', 'golint']
 
 " C++
 let g:cpp_class_scope_highlight = 1
