@@ -6,8 +6,6 @@ set nocompatible
 let g:false = 0
 let g:true = 1
 
-" Base functions
-
 function! s:glob(from, pattern)
   return split(globpath(a:from, a:pattern), "[\r\n]")
 endfunction
@@ -44,8 +42,6 @@ function! s:load(...) abort
 
   return found
 endfunction
-
-" Load each file
 
 call s:load('dein.vim')
 call s:load('map.vim')

@@ -25,7 +25,6 @@ call dein#add('Shougo/vimproc', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ })
-call dein#add('vim-scripts/VimClojure')
 call dein#add('Shougo/vimshell')
 call dein#add('Shougo/unite.vim')
 call dein#add("osyo-manga/unite-quickfix")
@@ -153,7 +152,6 @@ function! s:StatusLine(mode)
   endif
 endfunction
 
-
 if has('syntax')
   augroup InsertHook
     autocmd!
@@ -273,7 +271,6 @@ augroup AlpacaTags
   if exists(':Tags')
     autocmd BufWritePost Gemfile TagsBundle
     autocmd BufEnter * TagsSet
-    " autocmd BufWritePost * TagsUpdate
   endif
 augroup END
 

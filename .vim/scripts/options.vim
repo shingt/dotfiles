@@ -8,15 +8,14 @@ set backspace=indent,eol,start
 set number
 set showmatch
 set laststatus=2
-set statusline=%<%f\ %{fugitive#statusline()}\ %m%r%h%w%y%{'\ \ \/'.(&fenc!=''?&fenc:&enc).'\/'.&ff.'\/'}%=%l,%c%V%8P
 set nolist
 set lcs=tab:\ \ 
 set wildmenu
 set showcmd
 set autoindent
 set expandtab
-set shiftwidth=2
 set smarttab
+set shiftwidth=2
 set tabstop=2
 set smartindent
 set backupdir=$HOME/backup
@@ -34,6 +33,7 @@ set foldmethod=marker
 set clipboard=unnamed
 set tw=0
 set winaltkeys=no
+set statusline=%<%f\ %{fugitive#statusline()}\ %m%r%h%w%y%{'\ \ \/'.(&fenc!=''?&fenc:&enc).'\/'.&ff.'\/'}%=%l,%c%V%8P
 
 filetype plugin indent on
 
