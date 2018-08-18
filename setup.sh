@@ -27,9 +27,7 @@ mkdir util
 
 mkdir $HOME/backup
 
-#
 # git-completion
-#
 cd $HOME/$DOTFILES_DIR/.zsh.d/completion
 wget https://github.com/git/git/raw/master/contrib/completion/git-completion.bash
 wget https://github.com/git/git/raw/master/contrib/completion/git-completion.zsh

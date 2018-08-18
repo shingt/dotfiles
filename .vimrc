@@ -18,10 +18,8 @@ call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/neocomplete.vim')
 call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/neosnippet')
-
 call dein#add('Shougo/neocomplcache.git')
 call dein#add('Shougo/neocomplcache-rsense.vim')
-
 call dein#add('Shougo/neobundle.vim')
 call dein#add('Shougo/vimproc', {
       \ 'build' : {
@@ -58,30 +56,19 @@ call dein#add('junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' })
 call dein#add('rking/ag.vim')
 call dein#add("kana/vim-smartinput")
 call dein#add("cohama/vim-smartinput-endwise")
-
-" Use clipboard for yank and space
 call dein#add('kana/vim-fakeclip')
-
 call dein#add('octol/vim-cpp-enhanced-highlight')
 call dein#add('fatih/vim-go')
 
-"todo: should be lazy from here
-
-" syntax check
+" Syntax check
 call dein#add('vim-syntastic/syntastic', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c', 'objc']}}, {'lazy': 1})
 call dein#add('vim-scripts/ZenCoding.vim', {'autoload': {'filetypes': ['html']}}, {'lazy': 1})
 
-" Rails
+" Others
 call dein#add('tpope/vim-rails', {'autoload':{'filetypes': ['ruby']}}, {'lazy': 1})
 call dein#add('tpope/vim-bundler', {'lazy': 1})
 call dein#add('basyura/unite-rails', {'lazy': 1})
-
-" Perl
 call dein#add('vim-perl/vim-perl', {'lazy': 1})
-call dein#add('c9s/perlomni.vim', {'lazy': 1})
-call dein#add("y-uuki/perl-local-lib-path.vim", {'lazy': 1})
-
-call dein#add('kchmck/vim-coffee-script', {'lazy': 1})
 call dein#add('chrismetcalf/vim-markdown', {'autoload':{'filetypes': ['markdown']}}, {'lazy': 1})
 call dein#add("vim-scripts/nginx.vim", {'lazy': 1})
 call dein#add("ekalinin/Dockerfile.vim", {'lazy': 1})
@@ -338,7 +325,6 @@ endif
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
-"rsenseのインストールフォルダがデフォルトと異なるので設定
 let g:rsenseHome = "/Users/shingt/.rbenv/shims/rsense"
 let g:rsenseUseOmniFunc = 1
 
@@ -395,7 +381,6 @@ autocmd FileType go :highlight goErr cterm=bold ctermfg=214
 autocmd FileType go :match goErr /\<err\>/
 let g:syntastic_mode_map = { 'mode': 'passive',
     \ 'active_filetypes': ['go'] }
-"let g:syntastic_go_checkers = ['go', 'golint']
 
 " C++
 let g:cpp_class_scope_highlight = 1
