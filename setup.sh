@@ -34,3 +34,6 @@ wget https://github.com/git/git/raw/master/contrib/completion/git-completion.zsh
 mv git-completion.zsh _git
 cd $HOME
 
+# Temp
+# curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+
