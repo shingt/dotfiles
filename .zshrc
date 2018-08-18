@@ -218,27 +218,19 @@ function peco-find-file() {
 zle -N peco-find-file
 bindkey '^q' peco-find-file
 
-
 # zplug
 
-source ~/.zplug/init.zsh
+if [[ -f ~/.zplug/init.zsh ]]; then
+    export ZPLUG_LOADFILE=~/.zsh.d/zplug.zsh
+    source ~/.zplug/init.zsh
 
-zplug "zsh-users/zsh-autosuggestions"
-zplug "b4b4r07/enhancd", use:init.sh
-if zplug check "b4b4r07/enhancd"; then
-    export ENHANCD_FILTER="fzf --height 50% --reverse --ansi"
-    export ENHANCD_DOT_SHOW_FULLPATH=1
-fi
-zplug "b4b4r07/zsh-vimode-visual", use:"*.zsh", defer:3
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "glidenote/hub-zsh-completion"
-zplug 'Valodim/zsh-curl-completion'
-
-if ! zplug check --verbose; then
-    printf 'Install? [y/N]: '
-    if read -q; then
-        echo; zplug install
+    if ! zplug check --verbose; then
+        printf "Install? [y/N]: "
+        if read -q; then
+            echo; zplug install
+        fi
+        echo
     fi
+    zplug load
 fi
-zplug load
+
