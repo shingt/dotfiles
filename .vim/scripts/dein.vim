@@ -17,7 +17,7 @@ call dein#add('Shougo/neosnippet')
 call dein#add('Shougo/neocomplcache.git')
 call dein#add('Shougo/neocomplcache-rsense.vim')
 call dein#add('Shougo/neobundle.vim')
-call dein#add('Shougo/vimproc', {
+call dein#add('Shougo/vimproc.vim', {
       \ 'build' : {
       \     'windows' : 'make -f make_mingw32.mak',
       \     'cygwin' : 'make -f make_cygwin.mak',
