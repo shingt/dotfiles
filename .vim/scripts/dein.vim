@@ -41,9 +41,6 @@ call dein#add('thinca/vim-quickrun')
 call dein#add('scrooloose/nerdtree' )
 call dein#add('tpope/vim-obsession')
 
-" See: http://qiita.com/shotat/items/7302f937ae623ccc154a
-"call dein#add('apple-swift', {'type': 'nosync', 'base': '~/.vim/bundle/manual'})
-
 call dein#add('airblade/vim-gitgutter')
 call dein#add('rhysd/github-complete.vim')
 call dein#add('w0ng/vim-hybrid')
@@ -55,12 +52,10 @@ call dein#add("cohama/vim-smartinput-endwise")
 call dein#add('kana/vim-fakeclip')
 call dein#add('octol/vim-cpp-enhanced-highlight')
 call dein#add('fatih/vim-go')
-
-" Syntax check
+call dein#add('keith/swift.vim')
 call dein#add('vim-syntastic/syntastic', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c', 'objc']}}, {'lazy': 1})
 call dein#add('vim-scripts/ZenCoding.vim', {'autoload': {'filetypes': ['html']}}, {'lazy': 1})
 
-" Others
 call dein#add('tpope/vim-rails', {'autoload':{'filetypes': ['ruby']}}, {'lazy': 1})
 call dein#add('tpope/vim-bundler', {'lazy': 1})
 call dein#add('basyura/unite-rails', {'lazy': 1})
