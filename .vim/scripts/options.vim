@@ -40,11 +40,10 @@ filetype plugin indent on
 highlight link EndOfBuffer Ignore
 
 augroup filetypedetect
-  autocmd! BufNewFile,BufRead *.pl  set tabstop=4 shiftwidth=4
-  autocmd! BufNewFile,BufRead *.pm  set tabstop=4 shiftwidth=4
-  autocmd! BufNewFile,BufRead *.rb  set tabstop=2 shiftwidth=2
-  autocmd! BufNewFile,BufRead *.md  set tabstop=2 shiftwidth=2
   autocmd! BufNewFile,BufRead Fastfile set ft=ruby
+  autocmd! BufNewFile,BufRead Dangerfile set ft=ruby
+  autocmd! BufNewFile,BufRead Podfile set ft=ruby
+  autocmd! BufNewFile,BufRead Cartfile set ft=swift
 augroup END
 
 autocmd QuickfixCmdPost vimgrep cw
