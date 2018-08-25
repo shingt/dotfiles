@@ -11,6 +11,7 @@ srcs=(
   .zsh.d
   .zshenv
   .zshrc
+  .ctags
 )
 
 for src in ${srcs[@]}; do
