@@ -44,6 +44,7 @@ augroup filetypedetect
   autocmd! BufNewFile,BufRead Dangerfile set ft=ruby
   autocmd! BufNewFile,BufRead Podfile set ft=ruby
   autocmd! BufNewFile,BufRead Cartfile set ft=swift
+  autocmd! BufNewFile,BufRead *.gyb set ft=swift
   autocmd! BufNewFile,BufRead *.def set ft=cpp
 augroup END
 
