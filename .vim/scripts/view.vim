@@ -4,8 +4,8 @@ let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
 
-"autocmd ColorScheme * highlight LineNr ctermfg=98
-"set background=dark
+"https://github.com/dracula/vim/issues/65
+let g:dracula_italic = 0
 colorscheme dracula
 
 if &term == "screen"
