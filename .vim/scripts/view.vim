@@ -12,3 +12,11 @@ if &term == "screen"
   set t_Co=256
 endif
 
+" Highlight current line
+set cursorline
+hi cursorline cterm=none term=none
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+highlight CursorLine guibg=#703000 ctermbg=235
+hi CursorLineNr cterm=NONE ctermfg=250
+
