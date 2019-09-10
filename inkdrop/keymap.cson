@@ -1,0 +1,5 @@
+{
+  ".CodeMirror.vim-mode.insert-mode textarea": {
+    "ctrl-[": "vim-mode:exit-insert-mode"
+  }
+}
