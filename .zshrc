@@ -234,3 +234,4 @@ if [[ -f ~/.zplug/init.zsh ]]; then
     zplug load
 fi
 
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
