@@ -1,6 +1,9 @@
 {
   ".CodeMirror.vim-mode.insert-mode textarea": {
     "ctrl-[": "vim-mode:exit-insert-mode",
-    'ctrl-j': 'editor:new-line'
+    "ctrl-j": "editor:new-line"
   },
+  ".CodeMirror.vim-mode:not(.insert-mode):not(.key-buffering) textarea": {
+    "0": "vim-mode:move-to-beginning-of-line"
+  }
 }
