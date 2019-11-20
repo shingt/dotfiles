@@ -52,6 +52,7 @@ call dein#add('kana/vim-fakeclip')
 call dein#add('octol/vim-cpp-enhanced-highlight')
 call dein#add('fatih/vim-go')
 call dein#add('keith/swift.vim')
+call dein#add('udalov/kotlin-vim')
 call dein#add('vim-syntastic/syntastic', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c', 'objc']}}, {'lazy': 1})
 call dein#add('vim-scripts/ZenCoding.vim', {'autoload': {'filetypes': ['html']}}, {'lazy': 1})
 
