@@ -115,11 +115,11 @@ if [ -d ${HOME}/.rbenv  ] ; then
   eval "$(rbenv init -)"
 fi
 
-if [ -f /Users/shingt/google-cloud-sdk/path.zsh.inc ]; then
-  source '/Users/shingt/google-cloud-sdk/path.zsh.inc'
+if [ -f ${HOME}/google-cloud-sdk/path.zsh.inc ]; then
+  source "${HOME}/google-cloud-sdk/path.zsh.inc"
 fi
 if [ -f /Users/shingt/google-cloud-sdk/completion.zsh.inc ]; then
-  source '/Users/shingt/google-cloud-sdk/completion.zsh.inc'
+  source "${HOME}/google-cloud-sdk/completion.zsh.inc"
 fi
 
 ### functions
@@ -235,3 +235,4 @@ if [[ -f ~/.zplug/init.zsh ]]; then
 fi
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
