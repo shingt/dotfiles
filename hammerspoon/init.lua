@@ -45,30 +45,16 @@ end
 appsWatcher = hs.application.watcher.new(handleGlobalAppEvent)
 appsWatcher:start()
 
-remapKey({'ctrl'}, 'e', keyCode('right', {'cmd'}))
-remapKey({'ctrl'}, 'a', keyCode('left', {'cmd'}))
-
 remapKey({'ctrl'}, 'f', keyCode('right'))
 remapKey({'ctrl'}, 'b', keyCode('left'))
 remapKey({'ctrl'}, 'n', keyCode('down'))
 remapKey({'ctrl'}, 'p', keyCode('up'))
 
-remapKey({'ctrl'}, 's', keyCode('f', {'cmd'}))
 remapKey({'ctrl'}, 'j', keyCode('return'))
 remapKey({'ctrl'}, 'w', keyCode('x', {'cmd'}))
 remapKey({'ctrl'}, 'd', keyCode('forwarddelete'))
 remapKey({'ctrl'}, 'h', keyCode('delete'))
 remapKey({'ctrl'}, 'i', keyCode('tab'))
-
-remapKey({'ctrl'}, 'y', keyCode('v', {'cmd'}))
-remapKey({'ctrl'}, '/', keyCode('z', {'cmd'}))
-
-remapKey({'option'}, 'f', keyCode('right', {'option'}))
-remapKey({'option'}, 'b', keyCode('left', {'option'}))
-remapKey({'option'}, 'd', keyCode('forwarddelete', {'option'}))
-remapKey({'option'}, 'h', keyCode('delete', {'option'}))
-remapKey({'option', 'shift'}, ',', keyCode('home'))
-remapKey({'option', 'shift'}, '.', keyCode('end'))
 
 remapKey({'ctrl'}, 'v', keyCode('pagedown'))
 remapKey({'option'}, 'v', keyCode('pageup'))
