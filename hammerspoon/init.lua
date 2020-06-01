@@ -29,7 +29,7 @@ local function handleGlobalAppEvent(name, event, app)
       and (name ~= "Xcode")
       and (name ~= "Google Chrome")
       and (name ~= "Code")
-      and (name ~= "Inkdrop") then
+      and (name ~= "Android Studio") then
       enableAllHotkeys()
     else
       disableAllHotkeys()
