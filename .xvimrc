@@ -1,4 +1,4 @@
-" set clipboard=unnamed
+set clipboard=unnamed # Refer to this too https://github.com/XVimProject/XVim2/pull/308
 set ignorecase smartcase
 set incsearch
 set hlsearch
