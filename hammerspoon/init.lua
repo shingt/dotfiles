@@ -33,11 +33,6 @@ local function handleGlobalAppEvent(name, event, app)
   end
 end
 
-local function keyCtrlK()
-  keyCode('right', {'shift', 'cmd'})()
-  keyCode('x', {'cmd'})()
-end
-
 appsWatcher = hs.application.watcher.new(handleGlobalAppEvent)
 appsWatcher:start()
 
