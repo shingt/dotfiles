@@ -25,11 +25,7 @@ end
 
 local function handleGlobalAppEvent(name, event, app)
   if event == hs.application.watcher.activated then
-    if (name ~= "iTerm2")
-      and (name ~= "Xcode")
-      and (name ~= "Google Chrome")
-      and (name ~= "Code")
-      and (name ~= "Android Studio") then
+    if (name ~= "iTerm2") then
       enableAllHotkeys()
     else
       disableAllHotkeys()
@@ -53,13 +49,6 @@ remapKey({'ctrl'}, 'p', keyCode('up'))
 remapKey({'ctrl'}, 'j', keyCode('return'))
 remapKey({'ctrl'}, 'w', keyCode('x', {'cmd'}))
 remapKey({'ctrl'}, 'd', keyCode('forwarddelete'))
-remapKey({'ctrl'}, 'h', keyCode('delete'))
-remapKey({'ctrl'}, 'i', keyCode('tab'))
 
 remapKey({'ctrl'}, 'v', keyCode('pagedown'))
 remapKey({'option'}, 'v', keyCode('pageup'))
-
-remapKey({'ctrl', 'cmd', 'alt'}, 'h', keyCode('left', {'cmd', 'alt'}))
-remapKey({'ctrl', 'cmd', 'alt'}, 'j', keyCode('down', {'cmd', 'alt'}))
-remapKey({'ctrl', 'cmd', 'alt'}, 'k', keyCode('up', {'cmd', 'alt'}))
-remapKey({'ctrl', 'cmd', 'alt'}, 'l', keyCode('right', {'cmd', 'alt'}))
