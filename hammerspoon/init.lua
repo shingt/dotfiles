@@ -41,14 +41,8 @@ end
 appsWatcher = hs.application.watcher.new(handleGlobalAppEvent)
 appsWatcher:start()
 
-remapKey({'ctrl'}, 'f', keyCode('right'))
-remapKey({'ctrl'}, 'b', keyCode('left'))
-remapKey({'ctrl'}, 'n', keyCode('down'))
-remapKey({'ctrl'}, 'p', keyCode('up'))
-
 remapKey({'ctrl'}, 'j', keyCode('return'))
 remapKey({'ctrl'}, 'w', keyCode('x', {'cmd'}))
-remapKey({'ctrl'}, 'd', keyCode('forwarddelete'))
 
 remapKey({'ctrl'}, 'v', keyCode('pagedown'))
 remapKey({'option'}, 'v', keyCode('pageup'))
