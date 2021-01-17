@@ -7,7 +7,6 @@ export PATH=/usr/sbin:$PATH
 export PATH=~/.rbenv/shims/gem:$PATH
 export PATH=~/Library/Python/2.7/bin:$PATH
 export PATH=~/google-cloud-sdk/bin:$PATH
-
 # node.js
 export PATH=/usr/local/share/npm/bin:$PATH
 export NODE_PATH=/usr/local/lib/node
@@ -48,6 +47,12 @@ fi
 if [ `which go 2> /dev/null` ]; then
   export GOPATH=$HOME
   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
+
+# nvm
+if type node > /dev/null 2>&1; then
+  NODE_PATH=`which node`
+  export PATH=$PATH:$NODE_PATH/../
 fi
 
 # python
