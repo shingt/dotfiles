@@ -1,15 +1,15 @@
 # bashrc
 
-export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/bin:$PATH
-export PATH=/sbin:$PATH
-export PATH=/usr/sbin:$PATH
-export PATH=~/.rbenv/shims/gem:$PATH
-export PATH=~/Library/Python/2.7/bin:$PATH
-export PATH=~/google-cloud-sdk/bin:$PATH
+export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/sbin
+export PATH=$PATH:/usr/sbin
+export PATH=$PATH:~/.rbenv/shims/gem
+export PATH=$PATH:~/Library/Python/2.7/bin
+export PATH=$PATH:~/google-cloud-sdk/bin
 
 # node.js
-export PATH=/usr/local/share/npm/bin:$PATH
+export PATH=$PATH:/usr/local/share/npm/bin
 export NODE_PATH=/usr/local/lib/node
 
 # Android
