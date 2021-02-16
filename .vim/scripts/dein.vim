@@ -42,6 +42,7 @@ call dein#add('tpope/vim-obsession')
 
 call dein#add('airblade/vim-gitgutter')
 call dein#add('rhysd/github-complete.vim')
+call dein#add('rhysd/ghpr-blame.vim')
 call dein#add('w0ng/vim-hybrid')
 call dein#add('dracula/vim')
 call dein#add('junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' })
@@ -245,6 +246,16 @@ nnoremap <silent>gc :Gcommit<CR>
 nnoremap <silent>gM :Gcommit --amend<CR>
 nnoremap <silent>gd :Gdiff<CR>
 
+" ghpr-blame
+nnoremap <silent>gpb :GHPRBlame<CR>
+nnoremap <silent>gpq :GHPRBlameQuit<CR>
+
+" vim-unite-giti
+nnoremap <silent>gl :Unite giti/log -no-start-insert -horizontal<CR>
+nnoremap <silent>gP :Unite giti/pull_request/base -no-start-insert -horizontal<CR>
+nnoremap <silent>gs :Unite giti/status -no-start-insert -horizontal<CR>
+nnoremap <silent>gh :Unite giti/branch_all -no-start-insert<CR>
+
 let hooks = neobundle#get_hooks('vim-fugitive')
 function! hooks.on_source(bundle)
   augroup MyGitCmd
@@ -262,12 +273,6 @@ endfunction
 
 command! FugitiveReload call fugitive#detect(expand('<amatch>:p'))
 unlet hooks
-
-" vim-unite-giti
-nnoremap <silent>gl :Unite giti/log -no-start-insert -horizontal<CR>
-nnoremap <silent>gP :Unite giti/pull_request/base -no-start-insert -horizontal<CR>
-nnoremap <silent>gs :Unite giti/status -no-start-insert -horizontal<CR>
-nnoremap <silent>gh :Unite giti/branch_all -no-start-insert<CR>
 
 augroup AlpacaTags
   autocmd!
