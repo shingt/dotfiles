@@ -240,10 +240,10 @@ let g:cpp_class_scope_highlight = 1
 
 " fugitive
 nnoremap <silent>ga :Gwrite<CR>
-nnoremap <silent>gb :Gblame<CR>
-nnoremap <silent>gB :Gbrowse<CR>
-nnoremap <silent>gc :Gcommit<CR>
-nnoremap <silent>gM :Gcommit --amend<CR>
+nnoremap <silent>gb :Git blame<CR>
+nnoremap <silent>gB :GBrowse<CR>
+nnoremap <silent>gc :Git commit<CR>
+nnoremap <silent>gM :Git commit --amend<CR>
 nnoremap <silent>gd :Gdiff<CR>
 
 " ghpr-blame
