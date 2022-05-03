@@ -11,6 +11,7 @@ export PATH=$PATH:~/google-cloud-sdk/bin
 # node.js
 export PATH=$PATH:/usr/local/share/npm/bin
 export NODE_PATH=/usr/local/lib/node
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Android
 export ANDROID_HOME=$HOME/Library/Android/sdk
