@@ -41,6 +41,8 @@ fi
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# Use ag instead of find to respect .gitignore.
+export FZF_DEFAULT_COMMAND='(ag -l -g "")'
 
 # ffmpeg
 LD_LIBRARY_PATH=/usr/local/lib
