@@ -152,15 +152,6 @@ function open-pull-request () {
     open $url
 }
 
-function _update_ps1()
-{
-    export PROMPT="$(~/src/github.com/carlcarl/powerline-zsh/powerline-zsh.py $?)"
-}
-precmd()
-{
-    _update_ps1
-}
-
 # See: http://qiita.com/__hage/items/db024acea35575121b25
 function tmux-remake-socket () {
     if [ ! $TMUX ]; then
@@ -232,9 +223,10 @@ alias opr='open-pull-request'
 
 # zplug
 
-if [[ -f ~/.zplug/init.zsh ]]; then
+export ZPLUG_HOME=/opt/homebrew/opt/zplug
+if [[ -f $ZPLUG_HOME/init.zsh ]]; then
     export ZPLUG_LOADFILE=~/.zsh.d/zplug.zsh
-    source ~/.zplug/init.zsh
+    source $ZPLUG_HOME/init.zsh
 
     if ! zplug check --verbose; then
         printf "Install? [y/N]: "
