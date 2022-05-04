@@ -25,7 +25,7 @@ end
 
 local function handleGlobalAppEvent(name, event, app)
   if event == hs.application.watcher.activated then
-    if (name ~= "iTerm2") then
+    if (name ~= "iTerm2" || name ~= "Xcode") then
       enableAllHotkeys()
     else
       disableAllHotkeys()
