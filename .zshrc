@@ -209,9 +209,6 @@ bindkey '^q' peco-find-file
 alias -g b='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 alias -g R='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
 
-## For `git remote add`
-alias -g H='`curl -sL https://api.github.com/users/YOUR_USERNAME/repos | jq -r ".[].full_name" | peco --prompt "GITHUB REPOS>" | head -n 1`'
-
 ## For `git checkout -b LOCAL REMOTE`
 alias -g LR='`git branch -a | peco --query "remotes/ " --prompt "GIT REMOTE BRANCH>" | head -n 1 | sed "s/remotes\/[^\/]*\/\(\S*\)/\1 \0/"`'
 
