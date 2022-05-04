@@ -6,7 +6,7 @@ DOTFILES_DIR=src/github.com/shingt/dotfiles
 source ~/$DOTFILES_DIR/.zsh.d/zshrc
 
 # ------------------------------
-# For git-completion.zsh
+# git-completion.zsh
 # ------------------------------
 
 if which brew > /dev/null; then
@@ -68,6 +68,7 @@ bindkey "^N" history-beginning-search-forward-end
 # ------------------------------
 # Look And Feel Settings
 # ------------------------------
+
 # Ls Color
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 export ZLS_COLORS=$LS_COLORS
@@ -93,6 +94,7 @@ PROMPT=$tmp_prompt
 PROMPT2=$tmp_prompt2
 RPROMPT=$tmp_rprompt
 SPROMPT=$tmp_sprompt
+
 # SSH logined
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
   PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
@@ -122,9 +124,11 @@ if [ -f /Users/shingt/google-cloud-sdk/completion.zsh.inc ]; then
   source "${HOME}/google-cloud-sdk/completion.zsh.inc"
 fi
 
-### functions
+# ------------------------------
+# Functions
+# ------------------------------
 
-# for ghq + peco (http://weblog.bulknews.net/post/89635306479/ghq-peco-percol)
+# ghq + peco (http://weblog.bulknews.net/post/89635306479/ghq-peco-percol)
 function peco-src () {
   local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
@@ -147,18 +151,6 @@ function open-pull-request () {
     fi
     open $url
 }
-
-alias opr='open-pull-request'
-
-# Global aliases
-alias -g b='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
-alias -g R='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
-
-## For `git remote add`
-alias -g H='`curl -sL https://api.github.com/users/YOUR_USERNAME/repos | jq -r ".[].full_name" | peco --prompt "GITHUB REPOS>" | head -n 1`'
-
-## For `git checkout -b LOCAL REMOTE`
-alias -g LR='`git branch -a | peco --query "remotes/ " --prompt "GIT REMOTE BRANCH>" | head -n 1 | sed "s/remotes\/[^\/]*\/\(\S*\)/\1 \0/"`'
 
 function _update_ps1()
 {
@@ -217,6 +209,26 @@ function peco-find-file() {
 }
 zle -N peco-find-file
 bindkey '^q' peco-find-file
+
+# ------------------------------
+# Aliases
+# ------------------------------
+
+# Global
+alias -g b='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
+alias -g R='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
+
+## For `git remote add`
+alias -g H='`curl -sL https://api.github.com/users/YOUR_USERNAME/repos | jq -r ".[].full_name" | peco --prompt "GITHUB REPOS>" | head -n 1`'
+
+## For `git checkout -b LOCAL REMOTE`
+alias -g LR='`git branch -a | peco --query "remotes/ " --prompt "GIT REMOTE BRANCH>" | head -n 1 | sed "s/remotes\/[^\/]*\/\(\S*\)/\1 \0/"`'
+
+alias opr='open-pull-request'
+
+# ------------------------------
+# Others
+# ------------------------------
 
 # zplug
 
