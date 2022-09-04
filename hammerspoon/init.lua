@@ -41,3 +41,10 @@ remapKey({'ctrl'}, 'w', keyCode('x', {'cmd'}))
 
 remapKey({'ctrl'}, 'v', keyCode('pagedown'))
 remapKey({'option'}, 'v', keyCode('pageup'))
+
+-- Config reload
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
+  hs.reload()
+end)
+hs.alert.show("Config reloaded")
