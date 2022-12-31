@@ -72,6 +72,9 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 # Workaround: Not sure why but when tmux is luanched PYTHONPATH is automatically set.
 unset PYTHONPATH
 
+# rust
+if [[ -s $HOME/.cargo/env ]] ; then . "$HOME/.cargo/env" ; fi
+
 alias be="bundle exec"
 alias tm='tmux'
 alias tma='tmux attach'
@@ -87,4 +90,3 @@ propen() {
     local current_branch_name=$(git symbolic-ref --short HEAD | xargs perl -MURI::Escape -e 'print uri_escape($ARGV[0]);')
     git config --get remote.origin.url | sed -e "s/^.*[:\/]\(.*\/.*\).git$/https:\/\/github.com\/\1\//" | sed -e "s/$/pull\/${current_branch_name}/" | xargs open
 }
-
