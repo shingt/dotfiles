@@ -26,8 +26,8 @@ export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 export GPG_TTY=$(tty)
 
-# https://github.com/google/google-api-ruby-client/issues/253#issuecomment-169957139
-export SSL_CERT_FILE=/usr/local/etc/openssl/cert.pem
+## https://github.com/google/google-api-ruby-client/issues/253#issuecomment-169957139
+#export SSL_CERT_FILE=/usr/local/etc/openssl/cert.pem
 
 # http://mawatari.jp/archives/mac-provisioning-by-homebrew-and-ansible
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
