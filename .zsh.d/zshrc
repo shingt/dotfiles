@@ -86,7 +86,9 @@ update_prompt()
 
     LANG=C vcs_info >&/dev/null
     if [ -n "$vcs_info_msg_0_" ]; then
-	RPROMPT="${vcs_info_msg_0_}-${RPROMPT}"
+#	RPROMPT="${vcs_info_msg_0_}-${RPROMPT}"
+#	Temprarily disable current dir display.
+	RPROMPT="${vcs_info_msg_0_}"
     fi
 }
 
