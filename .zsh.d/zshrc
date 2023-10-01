@@ -43,6 +43,7 @@ bg256()
     echo -n $'\e[48;5;'$(color256 "$@")"m"
 }
 
+# For color pallet, see: https://github.com/yonchu/shell-color-pallet
 ###   -(user@debian)-(0)-<2011/09/01 00:54>------------------------------[/home/user]-
 ###   -[84](0)%                                                                   [~]
 autoload -Uz vcs_info
@@ -56,7 +57,7 @@ prompt_bar_left_status="%{%B%F{white}%}%{%k%f%b%}"
 prompt_bar_left_date=""
 prompt_bar_left="${prompt_bar_left_self}-${prompt_bar_left_status}"
 ###   %{%B%K{magenta}%F{white}%}...%{%f%k%b%}:
-prompt_bar_right="[%{%B%F{magenta}%}%d%{%f%k%b%}]"
+prompt_bar_right="[%{%F{218}%}%d%{%f%k%b%}]"
 
 prompt_left="%(1j,(%j),)%{%B%}%#%{%b%} "
 
