@@ -47,9 +47,9 @@ bg256()
 ###   -[84](0)%                                                                   [~]
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats \
-    '(%{%F{green}%}%s%{%f%k%})-[%{%F{blue}%}%b%{%f%k%}]'
+    '(%{%F{076}%}%s%{%f%k%})-[%{%F{081}%}%b%{%f%k%}]'
 zstyle ':vcs_info:*' actionformats \
-    '(%{%F{green}%}%s%{%f%k%})-[%{%F{blue}%}%b%{%f%k%}|%{%F{red}%}%a%{%f%k%}]'
+    '(%{%F{076}%}%s%{%f%k%})-[%{%F{081}%}%b%{%f%k%}|%{%F{red}%}%a%{%f%k%}]'
 
 prompt_bar_left_self="%{%B%}%n%{%b%}%{%F{cyan}%}@%{%f%}%{%B%}%m%{%b%}"
 prompt_bar_left_status="%{%B%F{white}%}%{%k%f%b%}"
