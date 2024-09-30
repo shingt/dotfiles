@@ -20,6 +20,11 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+# Aqua
+if [ `which aqua 2> /dev/null` ]; then
+  export PATH="$PATH:$(aqua root-dir)/bin"
+fi
+
 export LANGUAGE=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
 export CLICOLOR=1
