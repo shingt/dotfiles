@@ -56,40 +56,67 @@ call dein#add('keith/swift.vim')
 call dein#add('leafgarland/typescript-vim')
 call dein#add('thalesmello/lkml.vim')
 call dein#add('udalov/kotlin-vim')
-call dein#add('vim-syntastic/syntastic', {'autoload':{'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c', 'objc']}}, {'lazy': 1})
-call dein#add('vim-scripts/ZenCoding.vim', {'autoload': {'filetypes': ['html']}}, {'lazy': 1})
-
-call dein#add('tpope/vim-rails', {'autoload':{'filetypes': ['ruby']}}, {'lazy': 1})
+call dein#add('vim-syntastic/syntastic', {
+  \ 'autoload': {'filetypes': ['xml', 'html', 'sass', 'css', 'js', 'yaml', 'json', 'xslt', 'python', 'perl', 'c', 'objc']},
+  \ 'lazy': 1
+\ })
+call dein#add('vim-scripts/ZenCoding.vim', {
+  \ 'autoload': {'filetypes': ['html']},
+  \ 'lazy': 1
+\ })
+call dein#add('tpope/vim-rails', {
+  \ 'autoload': {'filetypes': ['ruby']},
+  \ 'lazy': 1
+\ })
 call dein#add('tpope/vim-bundler', {'lazy': 1})
 call dein#add('basyura/unite-rails', {'lazy': 1})
 call dein#add('vim-perl/vim-perl', {'lazy': 1})
-call dein#add('chrismetcalf/vim-markdown', {'autoload':{'filetypes': ['markdown']}}, {'lazy': 1})
+call dein#add('chrismetcalf/vim-markdown', {
+  \ 'autoload': {'filetypes': ['markdown']},
+  \ 'lazy': 1
+\ })
 call dein#add("vim-scripts/nginx.vim", {'lazy': 1})
 call dein#add("ekalinin/Dockerfile.vim", {'lazy': 1})
 call dein#add('juvenn/mustache.git', {'lazy': 1})
 call dein#add('mattn/flappyvird-vim.git', {'lazy': 1})
 call dein#add('alpaca-tc/alpaca_tags', {
-      \    'depends': ['Shougo/vimproc'],
-      \    'autoload' : {
-      \       'commands' : [
-      \          { 'name' : 'AlpacaTagsBundle', 'complete': 'customlist,alpaca_tags#complete_source' },
-      \          { 'name' : 'AlpacaTagsUpdate', 'complete': 'customlist,alpaca_tags#complete_source' },
-      \          'AlpacaTagsSet', 'AlpacaTagsCleanCache', 'AlpacaTagsEnable', 'AlpacaTagsDisable', 'AlpacaTagsKillProcess', 'AlpacaTagsProcessStatus',
-      \       ],
-      \    }
-      \ }, {'lazy': 1})
-
+  \ 'depends': ['Shougo/vimproc'],
+  \ 'autoload': {
+  \   'commands': [
+  \     {'name': 'AlpacaTagsBundle', 'complete': 'customlist,alpaca_tags#complete_source'},
+  \     {'name': 'AlpacaTagsUpdate', 'complete': 'customlist,alpaca_tags#complete_source'},
+  \     'AlpacaTagsSet',
+  \     'AlpacaTagsCleanCache',
+  \     'AlpacaTagsEnable',
+  \     'AlpacaTagsDisable',
+  \     'AlpacaTagsKillProcess',
+  \     'AlpacaTagsProcessStatus'
+  \   ]
+  \ },
+  \ 'lazy': 1
+\ })
 call dein#add('kmnk/vim-unite-giti', {
-      \ 'autoload': {
-      \   'unite_sources': [
-      \     'giti', 'giti/branch', 'giti/branch/new', 'giti/branch_all',
-      \     'giti/config', 'giti/log', 'giti/remote', 'giti/status'
-      \   ]
-      \ }}, {'lazy': 1})
-
-call dein#add('tpope/vim-fugitive', { 'autoload': {
-      \ 'functions' : ['fugitive#head', 'fugitive#detect'],
-      \ 'commands': ['Gcommit', 'Gblame', 'Ggrep', 'Gdiff', 'Gcd'] }}, {'lazy': 1})
+  \ 'autoload': {
+  \   'unite_sources': [
+  \     'giti',
+  \     'giti/branch',
+  \     'giti/branch/new',
+  \     'giti/branch_all',
+  \     'giti/config',
+  \     'giti/log',
+  \     'giti/remote',
+  \     'giti/status'
+  \   ]
+  \ },
+  \ 'lazy': 1
+\ })
+call dein#add('tpope/vim-fugitive', {
+  \ 'autoload': {
+  \   'functions': ['fugitive#head', 'fugitive#detect'],
+  \   'commands': ['Gcommit', 'Gblame', 'Ggrep', 'Gdiff', 'Gcd']
+  \ },
+  \ 'lazy': 1
+\ })
 
 call dein#end()
 filetype plugin indent on
