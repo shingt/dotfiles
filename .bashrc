@@ -21,7 +21,7 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Aqua
-if [ `which aqua 2> /dev/null` ]; then
+if command -v aqua > /dev/null 2>&1; then
   export PATH="$PATH:$(aqua root-dir)/bin"
 fi
 
