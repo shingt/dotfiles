@@ -4,6 +4,7 @@ export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/sbin
 export PATH=$PATH:/usr/sbin
+export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.rbenv/shims/gem
 export PATH=$PATH:~/Library/Python/2.7/bin
 export PATH=$PATH:~/google-cloud-sdk/bin
